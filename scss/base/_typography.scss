@@ -1,0 +1,8 @@
+$font-primary: "Rubik", serif;
+
+@mixin text {
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 27px;
+  letter-spacing: -0.03em;
+}

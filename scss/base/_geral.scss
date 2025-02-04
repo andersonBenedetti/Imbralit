@@ -1,0 +1,36 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+body,
+html {
+  font-family: $font-primary;
+  @include text;
+  color: $textColor;
+  background-color: $iceBlue;
+  scroll-behavior: smooth;
+}
+
+main {
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1260px;
+  width: 100%;
+  margin: 0 auto;
+}

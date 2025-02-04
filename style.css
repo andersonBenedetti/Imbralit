@@ -1,0 +1,199 @@
+/*
+Theme Name: ImbralitTheme
+Theme URI: https://blumewebstudio.com.br
+Author: Blume Web Studio
+Author URI: https://blumewebstudio.com.br
+Description: Tema criado para a Imbralit.
+Version: 1.0
+*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+body,
+html {
+  font-family: "Rubik", serif;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 27px;
+  letter-spacing: -0.03em;
+  color: #3d3d3d;
+  background-color: #ecf2f6;
+  scroll-behavior: smooth;
+}
+
+main {
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1260px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#header {
+  position: fixed;
+  z-index: 9999999999;
+  top: 5px;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: #ffffff;
+  max-width: 1200px;
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+#header .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+#header .content .logo {
+  display: block;
+  max-width: 280px;
+}
+#header .content .menu-header .btn-menu {
+  display: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  z-index: 999999;
+}
+#header .content .menu-header .btn-menu:focus {
+  outline: none;
+}
+#header .content .menu-header .btn-menu span {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 4px;
+  background-color: #000000;
+  position: relative;
+  border-radius: 80px;
+  margin-top: -10px;
+}
+#header .content .menu-header .btn-menu span:before, #header .content .menu-header .btn-menu span:after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 4px;
+  border-radius: 80px;
+  background-color: #000000;
+  position: absolute;
+  bottom: -8.5px;
+  left: 0;
+}
+#header .content .menu-header .btn-menu span:after {
+  bottom: -16.5px;
+}
+#header .content .menu-header .menu-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+#header .content .menu-header .menu-list .item-mobile {
+  display: none;
+}
+#header .content .menu-header .menu-list a {
+  color: #3d3d3d;
+  transition: color 0.3s ease;
+}
+#header .content .menu-header .menu-list a:hover {
+  color: #000000;
+}
+#header .content .menu-header.active .btn-menu span {
+  background-color: transparent;
+}
+#header .content .menu-header.active .btn-menu span:after {
+  transform: rotate(45deg);
+  bottom: -8.5px;
+  width: 30px;
+  left: 0;
+}
+#header .content .menu-header.active .btn-menu span:before {
+  transform: rotate(-45deg);
+}
+#header .content .menu-header.active .menu-list {
+  height: 100vh;
+  visibility: visible;
+  overflow-y: auto;
+}
+#header .content .menu-header.active .menu-list ul {
+  flex-direction: column;
+}
+#header .content .menu-header.active .menu-list .item-mobile {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  #header .content .logo {
+    display: block;
+    max-width: 150px;
+  }
+  #header .content .menu-header .btn-menu {
+    display: block;
+  }
+  #header .content .menu-header .menu-list {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-color: #000000;
+    z-index: 9999;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+    visibility: hidden;
+    height: 0;
+    overflow-y: hidden;
+    transition: height 0.6s ease, visibility 0s linear 0s;
+  }
+  #header .content .menu-header .menu-list a {
+    font-size: 2em;
+  }
+  #header .content .btn {
+    display: none;
+  }
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+  height: 36px;
+  padding: 0 40px;
+  background-color: #008bd2;
+  color: #ffffff;
+  white-space: nowrap;
+  border: 0;
+  border-radius: 50px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/*# sourceMappingURL=style.css.map */
