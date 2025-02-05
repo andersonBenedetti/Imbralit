@@ -26,26 +26,80 @@
 <body>
     <div id="app">
 
+        <?php
+        $menu_items = [
+            ['label' => 'Sobre nós', 'url' => '#'],
+            [
+                'label' => 'Produtos',
+                'url' => '#',
+                'submenu' => [
+                    ['label' => 'Produto 1', 'url' => '#'],
+                    ['label' => 'Produto 2', 'url' => '#'],
+                    ['label' => 'Produto 3', 'url' => '#'],
+                ]
+            ],
+            ['label' => 'Imbrafort', 'url' => '#'],
+            ['label' => 'Calculadora', 'url' => '#'],
+            ['label' => 'Onde encontrar', 'url' => '#'],
+            ['label' => 'Blog', 'url' => '#'],
+        ];
+        ?>
+
         <header id="header">
             <div class="container">
                 <div class="content">
                     <a href="/" class="logo">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-header.webp"
-                            alt="Logo Mundial Tratamentos Fitossanitários">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-header.svg"
+                            alt="Logo Imbralit">
                     </a>
-                    <div class="menu-header" :class="{ active: activeMenu }">
-                        <button class="btn-menu" @click="activeMenu = !activeMenu">
+                    <div class="menu-header">
+                        <ul class="menu-list">
+                            <?php
+                            foreach ($menu_items as $item) {
+                                echo '<li>';
+                                echo '<a href="' . esc_url($item['url']) . '" aria-label="' . esc_html($item['label']) . '">' . esc_html($item['label']) . '</a>';
+
+                                if (!empty($item['submenu'])) {
+                                    echo '<ul class="submenu">';
+                                    foreach ($item['submenu'] as $submenu_item) {
+                                        echo '<li><a href="' . esc_url($submenu_item['url']) . '">' . esc_html($submenu_item['label']) . '</a></li>';
+                                    }
+                                    echo '</ul>';
+                                }
+
+                                echo '</li>';
+                            }
+                            ?>
+                        </ul>
+                    </div>
+                    <a href="#" class="btn secondary">Compre aqui</a>
+                    <div class="menu-header-m" :class="{ active: activeMenu }">
+                        <button class="btn-menu" @click="toggleMenu">
                             <span></span>
                         </button>
                         <ul class="menu-list">
-                            <li><a href="/">Quem somos</a></li>
-                            <li><a href="#">Produtos</a></li>
-                            <li><a href="#">Contato</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li class="item-mobile"><a href="#">Entre em contato</a></li>
+                            <?php
+                            foreach ($menu_items as $item) {
+                                echo '<li>';
+                                echo '<a href="' . esc_url($item['url']) . '" aria-label="' . esc_html($item['label']) . '">' . esc_html($item['label']) . '</a>';
+
+                                if (!empty($item['submenu'])) {
+                                    echo '<ul class="submenu">';
+
+                                    foreach ($item['submenu'] as $submenu_item) {
+                                        $submenu_id = isset($submenu_item['id']) ? $submenu_item['id'] : '';
+
+                                        echo '<li><a href="' . esc_url($submenu_item['url']) . '" data-id="' . esc_attr($submenu_id) . '">' . esc_html($submenu_item['label']) . '</a></li>';
+                                    }
+
+                                    echo '</ul>';
+                                }
+
+                                echo '</li>';
+                            }
+                            ?>
                         </ul>
                     </div>
-                    <a href="#" class="btn">Entre em contato</a>
                 </div>
             </div>
         </header>

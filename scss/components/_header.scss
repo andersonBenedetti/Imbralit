@@ -1,14 +1,9 @@
 #header {
   position: fixed;
   z-index: 9999999999;
-  top: 5px;
-  left: 50%;
-  transform: translate(-50%);
-  background-color: $white;
-  max-width: 1200px;
+  top: 0;
+  left: 0;
   width: 100%;
-  padding: 5px 10px;
-  border-radius: 20px;
 
   .content {
     display: flex;
@@ -16,14 +11,141 @@
     align-items: center;
     gap: 20px;
 
+    @media (max-width: 1260px) {
+      padding: 0 20px;
+    }
+
     .logo {
       display: block;
-      max-width: 280px;
+      position: relative;
+      margin-right: 170px;
+
+      @media (max-width: 1260px) {
+        margin-right: 20px;
+      }
+
+      img {
+        width: 180px;
+        padding: 20px 0;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -110px;
+        height: 82px;
+        width: 360px;
+        background-image: url("./img/rectangle-header.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        z-index: -1;
+      }
+
+      &::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 82px;
+        width: 30%;
+        background-color: $white;
+        z-index: -2;
+
+        @media (max-width: 2100px) {
+          width: 20%;
+        }
+
+        @media (max-width: 1500px) {
+          width: 10%;
+        }
+      }
     }
 
     .menu-header {
+      background-color: $white;
+      border-radius: 5px;
+      padding: 20px 30px;
+
+      .menu-list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 40px;
+
+        @media (max-width: 1260px) {
+          gap: 20px;
+        }
+
+        .item-mobile {
+          display: none;
+        }
+
+        > li {
+          position: relative;
+
+          &:nth-child(2) > a::after {
+            content: "";
+            position: absolute;
+            top: 12px;
+            right: -10px;
+            height: 8px;
+            width: 8px;
+            background-image: url("./img/icons/arrow-submenu.svg");
+            background-size: contain;
+            background-repeat: no-repeat;
+          }
+
+          a {
+            @include menuText;
+            color: $textGray;
+            transition: color 0.3s ease;
+
+            &:hover {
+              color: $oceanBlue;
+            }
+          }
+
+          .submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: $white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            min-width: 180px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 999;
+
+            li {
+              padding: 5px 10px;
+
+              a {
+                display: block;
+                padding: 10px 15px;
+              }
+            }
+          }
+
+          &:hover .submenu {
+            opacity: 1;
+            visibility: visible;
+            display: block;
+          }
+        }
+      }
+    }
+
+    .menu-header-m {
+      display: none;
+      background-color: $white;
+      padding: 10px;
+      border-radius: 5px;
+
       .btn-menu {
-        display: none;
+        display: block;
         border: none;
         background: none;
         cursor: pointer;
@@ -41,7 +163,7 @@
           display: block;
           width: 30px;
           height: 4px;
-          background-color: $black;
+          background-color: $textGray;
           position: relative;
           border-radius: 80px;
           margin-top: -10px;
@@ -53,7 +175,7 @@
             width: 30px;
             height: 4px;
             border-radius: 80px;
-            background-color: $black;
+            background-color: $textGray;
             position: absolute;
             bottom: -8.5px;
             left: 0;
@@ -66,21 +188,67 @@
       }
 
       .menu-list {
+        position: absolute;
+        width: 100%;
+        height: 0;
+        top: 0;
+        right: 0;
+        background-color: $iceBlue;
+        z-index: 9999;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 20px;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 100px;
+        visibility: hidden;
+        overflow-y: hidden;
+        transition: height 0.6s ease, visibility 0s linear 0s;
 
-        .item-mobile {
-          display: none;
-        }
+        > li {
+          width: 100%;
+          padding: 10px 0;
+          border-bottom: 2px solid $white;
 
-        a {
-          color: $textColor;
-          transition: color 0.3s ease;
+          &:last-child {
+            border: 0;
+          }
 
-          &:hover {
-            color: $black;
+          a {
+            position: relative;
+            display: block;
+            width: max-content;
+            @include menuText;
+            color: $textGray;
+            text-align: center;
+            margin: 0 auto;
+            padding: 10px;
+          }
+
+          &:nth-child(2) > a::after {
+            content: "";
+            position: absolute;
+            top: 20px;
+            right: -5px;
+            height: 8px;
+            width: 8px;
+            background-image: url("./img/icons/arrow-submenu.svg");
+            background-size: contain;
+            background-repeat: no-repeat;
+          }
+
+          .submenu {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transition: max-height 0.5s ease, opacity 0.3s ease,
+              visibility 0s linear 0.5s;
+
+            &.active {
+              max-height: 1000px;
+              opacity: 1;
+              visibility: visible;
+              transition: max-height 0.5s ease, opacity 0.3s ease;
+            }
           }
         }
       }
@@ -105,56 +273,43 @@
           height: 100vh;
           visibility: visible;
           overflow-y: auto;
-
-          ul {
-            flex-direction: column;
-          }
-
-          .item-mobile {
-            display: block;
-          }
         }
       }
     }
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   #header {
     .content {
       .logo {
-        display: block;
-        max-width: 150px;
+        margin-right: 20px;
+        img {
+          width: 100px;
+          padding: 10px 0;
+          margin-bottom: -10px;
+        }
+
+        &::before {
+          left: -90px;
+          height: 52px;
+        }
+
+        &::after {
+          display: none;
+        }
       }
 
       .menu-header {
+        display: none;
+
         .btn-menu {
           display: block;
         }
-
-        .menu-list {
-          position: absolute;
-          width: 100%;
-          top: 0;
-          right: 0;
-          background-color: $black;
-          z-index: 9999;
-          flex-direction: column;
-          justify-content: center;
-          gap: 50px;
-          visibility: hidden;
-          height: 0;
-          overflow-y: hidden;
-          transition: height 0.6s ease, visibility 0s linear 0s;
-
-          a {
-            font-size: 2em;
-          }
-        }
       }
 
-      .btn {
-        display: none;
+      .menu-header-m {
+        display: block;
       }
     }
   }
