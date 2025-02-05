@@ -6,3 +6,17 @@ $font-primary: "Rubik", serif;
   line-height: 27px;
   letter-spacing: -0.03em;
 }
+
+@mixin menuText {
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 19.36px;
+  letter-spacing: -0.05em;
+}
+
+@mixin textBtn {
+  font-size: 0.875em;
+  font-weight: 600;
+  line-height: 19px;
+  letter-spacing: -0.03em;
+}
