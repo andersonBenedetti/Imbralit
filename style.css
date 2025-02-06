@@ -497,8 +497,68 @@ ul {
   }
 }
 
-#pg-home {
-  margin-top: 200px;
+#pg-home .intro {
+  position: relative;
+  z-index: 1;
+}
+#pg-home .intro .slick-counter {
+  position: absolute;
+  z-index: 2;
+  bottom: 17px;
+  right: 2%;
+  margin-right: 110px;
+  letter-spacing: 0.07em;
+  color: #ffffff;
+}
+#pg-home .intro .carousel-banner a img {
+  width: 100%;
+  object-fit: contain;
+}
+#pg-home .intro .carousel-banner a img.mbl {
+  display: none;
+}
+@media (max-width: 768px) {
+  #pg-home .intro .carousel-banner a img.dkp {
+    display: none;
+  }
+  #pg-home .intro .carousel-banner a img.mbl {
+    display: block;
+  }
+}
+#pg-home .intro .carousel-banner .slick-arrow {
+  position: absolute;
+  bottom: 10px;
+  z-index: 1;
+  padding: 5px;
+  border: 0;
+  border-radius: 50%;
+  font-size: 0;
+  outline: none;
+  overflow: hidden;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+#pg-home .intro .carousel-banner .slick-arrow:hover {
+  transform: scale(1.1);
+}
+#pg-home .intro .carousel-banner .slick-arrow.slick-prev {
+  right: 2%;
+  margin-right: 50px;
+}
+#pg-home .intro .carousel-banner .slick-arrow.slick-next {
+  right: 2%;
+}
+#pg-home .intro .carousel-banner .slick-arrow.slick-next::before {
+  transform: rotate(180deg);
+}
+#pg-home .intro .carousel-banner .slick-arrow::before {
+  background-image: url("./img/icons/arrow-carrossel.svg");
+  background-size: 32px 32px;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  content: "";
 }
 
 /*# sourceMappingURL=style.css.map */
