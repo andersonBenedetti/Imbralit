@@ -1,29 +1,19 @@
-jQuery(document).ready(function () {
-  jQuery(".carousel-feedback").slick({
-    autoplay: true,
-    dots: false,
-    arrows: false,
-    infinite: true,
-    speed: 1000,
-    autoplaySpeed: 2000,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    swipeToSlide: true,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
-  });
+jQuery(document).ready(function ($) {
+  let $carouselBanner = $(".carousel-banner");
 
-  jQuery(".carousel-home").slick({
+  $carouselBanner.on(
+    "init reInit afterChange",
+    function (event, slick, currentSlide) {
+      let i = (currentSlide ? currentSlide : 0) + 1;
+      $(".slick-counter").text(i + "/" + slick.slideCount);
+    }
+  );
+
+  $carouselBanner.slick({
     autoplay: true,
     dots: false,
     arrows: true,
-    infinite: true,
+    infinite: false,
     speed: 1000,
     autoplaySpeed: 2000,
     slidesToShow: 1,

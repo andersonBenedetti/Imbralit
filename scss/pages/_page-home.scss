@@ -1,3 +1,80 @@
 #pg-home {
-  margin-top: 200px;
+  .intro {
+    position: relative;
+    z-index: 1;
+
+    .slick-counter {
+      position: absolute;
+      z-index: 2;
+      bottom: 17px;
+      right: 2%;
+      margin-right: 110px;
+      letter-spacing: 0.07em;
+      color: $white;
+    }
+
+    .carousel-banner {
+      a {
+        img {
+          width: 100%;
+          object-fit: contain;
+
+          &.mbl {
+            display: none;
+          }
+
+          @media (max-width: 768px) {
+            &.dkp {
+              display: none;
+            }
+
+            &.mbl {
+              display: block;
+            }
+          }
+        }
+      }
+
+      .slick-arrow {
+        position: absolute;
+        bottom: 10px;
+        z-index: 1;
+        padding: 5px;
+        border: 0;
+        border-radius: 50%;
+        font-size: 0;
+        outline: none;
+        overflow: hidden;
+        background: transparent;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+
+        &.slick-prev {
+          right: 2%;
+          margin-right: 50px;
+        }
+
+        &.slick-next {
+          right: 2%;
+
+          &::before {
+            transform: rotate(180deg);
+          }
+        }
+
+        &::before {
+          background-image: url("./img/icons/arrow-carrossel.svg");
+          background-size: 32px 32px;
+          display: inline-block;
+          width: 32px;
+          height: 32px;
+          content: "";
+        }
+      }
+    }
+  }
 }
