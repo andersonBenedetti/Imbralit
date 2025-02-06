@@ -11,10 +11,6 @@
     align-items: center;
     gap: 20px;
 
-    @media (max-width: 1260px) {
-      padding: 0 20px;
-    }
-
     .logo {
       display: block;
       position: relative;
@@ -284,10 +280,10 @@
     .content {
       .logo {
         margin-right: 20px;
+
         img {
           width: 100px;
           padding: 10px 0;
-          margin-bottom: -10px;
         }
 
         &::before {

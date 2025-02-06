@@ -20,3 +20,10 @@ $font-primary: "Rubik", serif;
   line-height: 19px;
   letter-spacing: -0.03em;
 }
+
+@mixin titleList {
+  font-size: 1.125em;
+  font-weight: 700;
+  line-height: 21.78px;
+  letter-spacing: -0.05em;
+}
