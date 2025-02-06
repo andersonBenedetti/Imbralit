@@ -1,0 +1,146 @@
+#footer {
+  background-image: url("./img/fundo-footer.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right top;
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    padding: 130px 0 30px 0;
+
+    .infos {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .logo {
+        display: block;
+        max-width: 235px;
+      }
+
+      ul li {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        a {
+          width: 30px;
+          height: 30px;
+          background-color: $oceanBlue;
+          padding: 3px;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: $borderBlue;
+          }
+        }
+      }
+    }
+
+    nav,
+    address {
+      margin-top: 30px;
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      h3 {
+        @include titleList;
+        color: $white;
+        font-style: normal;
+      }
+
+      a {
+        @include menuText;
+        color: $white;
+        font-style: normal;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $oceanBlue;
+        }
+      }
+
+      p {
+        color: $white;
+        font-style: normal;
+        max-width: 160px;
+      }
+    }
+
+    address {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+
+  p.bottom {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid $borderBlue;
+    color: $white;
+
+    a {
+      font-weight: 600;
+      color: $white;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $oceanBlue;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  #footer {
+    background-image: url("./img/fundo-footer-m.svg");
+
+    .content {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 100px 0 30px 0;
+
+      nav,
+      address {
+        margin-top: 20px;
+
+        ul {
+          text-align: center;
+        }
+      }
+
+      address {
+        text-align: center;
+      }
+    }
+
+    p.bottom {
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid $borderBlue;
+      color: $white;
+
+      a {
+        font-weight: 600;
+        color: $white;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $oceanBlue;
+        }
+      }
+    }
+  }
+}

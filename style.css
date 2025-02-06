@@ -45,6 +45,11 @@ ul {
   width: 100%;
   margin: 0 auto;
 }
+@media (max-width: 1260px) {
+  .container {
+    padding: 0 20px;
+  }
+}
 
 #header {
   position: fixed;
@@ -58,11 +63,6 @@ ul {
   justify-content: space-between;
   align-items: center;
   gap: 20px;
-}
-@media (max-width: 1260px) {
-  #header .content {
-    padding: 0 20px;
-  }
 }
 #header .content .logo {
   display: block;
@@ -308,7 +308,6 @@ ul {
   #header .content .logo img {
     width: 100px;
     padding: 10px 0;
-    margin-bottom: -10px;
   }
   #header .content .logo::before {
     left: -90px;
@@ -325,6 +324,141 @@ ul {
   }
   #header .content .menu-header-m {
     display: block;
+  }
+}
+#footer {
+  background-image: url("./img/fundo-footer.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+#footer .content {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  padding: 130px 0 30px 0;
+}
+#footer .content .infos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#footer .content .infos .logo {
+  display: block;
+  max-width: 235px;
+}
+#footer .content .infos ul li {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+#footer .content .infos ul li a {
+  width: 30px;
+  height: 30px;
+  background-color: #008bd2;
+  padding: 3px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+#footer .content .infos ul li a:hover {
+  background-color: #2441a9;
+}
+#footer .content nav,
+#footer .content address {
+  margin-top: 30px;
+}
+#footer .content nav ul,
+#footer .content address ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#footer .content nav h3,
+#footer .content address h3 {
+  font-size: 1.125em;
+  font-weight: 700;
+  line-height: 21.78px;
+  letter-spacing: -0.05em;
+  color: #ffffff;
+  font-style: normal;
+}
+#footer .content nav a,
+#footer .content address a {
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 19.36px;
+  letter-spacing: -0.05em;
+  color: #ffffff;
+  font-style: normal;
+  transition: color 0.3s ease;
+}
+#footer .content nav a:hover,
+#footer .content address a:hover {
+  color: #008bd2;
+}
+#footer .content nav p,
+#footer .content address p {
+  color: #ffffff;
+  font-style: normal;
+  max-width: 160px;
+}
+#footer .content address {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#footer p.bottom {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #2441a9;
+  color: #ffffff;
+}
+#footer p.bottom a {
+  font-weight: 600;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+#footer p.bottom a:hover {
+  color: #008bd2;
+}
+
+@media (max-width: 768px) {
+  #footer {
+    background-image: url("./img/fundo-footer-m.svg");
+  }
+  #footer .content {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 100px 0 30px 0;
+  }
+  #footer .content nav,
+  #footer .content address {
+    margin-top: 20px;
+  }
+  #footer .content nav ul,
+  #footer .content address ul {
+    text-align: center;
+  }
+  #footer .content address {
+    text-align: center;
+  }
+  #footer p.bottom {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #2441a9;
+    color: #ffffff;
+  }
+  #footer p.bottom a {
+    font-weight: 600;
+    color: #ffffff;
+    transition: color 0.3s ease;
+  }
+  #footer p.bottom a:hover {
+    color: #008bd2;
   }
 }
 .btn {
