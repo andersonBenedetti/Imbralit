@@ -27,3 +27,17 @@ $font-primary: "Rubik", serif;
   line-height: 21.78px;
   letter-spacing: -0.05em;
 }
+
+@mixin titleInfos {
+  font-size: 1.5em;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: -0.03em;
+}
+
+@mixin textInfos {
+  font-weight: 400;
+  font-size: 0.875em;
+  line-height: 19px;
+  letter-spacing: -3%;
+}
