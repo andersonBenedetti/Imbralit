@@ -250,6 +250,66 @@
       }
     }
   }
+
+  .intro-about {
+    background-color: $btnColor;
+    padding-bottom: 100px;
+    overflow: hidden;
+
+    .about-container {
+      display: flex;
+      gap: 50px;
+
+      .img {
+        width: 50%;
+
+        img {
+          width: 100%;
+          object-fit: contain;
+        }
+      }
+
+      .content {
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        span {
+          @include subtitle;
+          text-transform: uppercase;
+          color: $white;
+        }
+
+        h2 {
+          @include titleSection;
+          text-transform: uppercase;
+          color: $white;
+        }
+
+        p {
+          color: $white;
+        }
+
+        .video-link {
+          margin-top: 50px;
+          margin-left: -100px;
+          position: relative;
+
+          &::after {
+            content: "";
+            background-image: url("./img/icons/ondas-video.svg");
+            background-repeat: no-repeat;
+            width: 360px;
+            height: 165px;
+            position: absolute;
+            right: -400px;
+            bottom: 0;
+          }
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: 1024px) {
@@ -331,6 +391,32 @@
             top: inherit;
             bottom: 50px;
             transform: scale(1.5);
+          }
+        }
+      }
+    }
+
+    .intro-about {
+      .about-container {
+        flex-wrap: wrap;
+        gap: 20px;
+
+        .img {
+          width: 100%;
+        }
+
+        .content {
+          width: 100%;
+          gap: 20px;
+
+          .video-link {
+            margin-top: 20px;
+            margin-left: 0;
+            width: 100%;
+
+            &::after {
+              display: none;
+            }
           }
         }
       }

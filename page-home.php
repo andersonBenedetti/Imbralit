@@ -90,6 +90,29 @@
         </div>
     </section>
 
+    <section class="intro-about">
+        <div class="container">
+            <div class="about-container">
+                <div class="img">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/about-home.webp" alt="Sobre nós">
+                </div>
+                <div class="content">
+                    <span>sobre nós</span>
+                    <h2>Desde 1974, fibrocimento é aqui.</h2>
+                    <p>A Imbralit faz parte do Grupo Empresarial Jorge Zanatta. Produzindo telhas onduladas de
+                        fibrocimento,
+                        peças complementares e placas planas de fibrocimento, atuamos em todo o Brasil.</p>
+                    <a href="#" class="btn tertiary">conheça a imbralit</a>
+                    <a href="#" class="video-link">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/icons/play-video.svg"
+                            alt="Play Video">
+                        <p>Assista ao nosso vídeo institucional</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </main>
 
 <?php get_footer(); ?>
