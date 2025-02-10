@@ -22,6 +22,7 @@
   }
 
   &.secondary {
+    background-color: $oceanBlue;
     height: 67px;
     padding: 0 40px;
 
@@ -29,5 +30,9 @@
       height: 50px;
       padding: 0 10px;
     }
+  }
+
+  &.tertiary {
+    background-color: $oceanBlue;
   }
 }

@@ -69,41 +69,41 @@
 </footer>
 
 <script>
-const app = new Vue({
-    el: '#app',
-    data() {
-        return {
-            activeMenu: false,
-            activeSubmenus: []
-        };
-    },
-    methods: {
-        toggleMenu() {
-            this.activeMenu = !this.activeMenu;
+    const app = new Vue({
+        el: '#app',
+        data() {
+            return {
+                activeMenu: false,
+                activeSubmenus: []
+            };
         },
-        toggleSubmenu(itemId) {
-            if (this.activeSubmenus.includes(itemId)) {
-                this.activeSubmenus = this.activeSubmenus.filter(id => id !== itemId);
-            } else {
-                this.activeSubmenus.push(itemId);
+        methods: {
+            toggleMenu() {
+                this.activeMenu = !this.activeMenu;
+            },
+            toggleSubmenu(itemId) {
+                if (this.activeSubmenus.includes(itemId)) {
+                    this.activeSubmenus = this.activeSubmenus.filter(id => id !== itemId);
+                } else {
+                    this.activeSubmenus.push(itemId);
+                }
+            },
+            isSubmenuActive(itemId) {
+                return this.activeSubmenus.includes(itemId);
+            },
+            closeSubmenus(event) {
+                if (!this.$el.contains(event.target)) {
+                    this.activeSubmenus = [];
+                }
             }
         },
-        isSubmenuActive(itemId) {
-            return this.activeSubmenus.includes(itemId);
+        mounted() {
+            document.addEventListener('click', this.closeSubmenus);
         },
-        closeSubmenus(event) {
-            if (!this.$el.contains(event.target)) {
-                this.activeSubmenus = [];
-            }
+        beforeDestroy() {
+            document.removeEventListener('click', this.closeSubmenus);
         }
-    },
-    mounted() {
-        document.addEventListener('click', this.closeSubmenus);
-    },
-    beforeDestroy() {
-        document.removeEventListener('click', this.closeSubmenus);
-    }
-});
+    });
 </script>
 
 </div>
