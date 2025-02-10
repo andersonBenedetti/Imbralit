@@ -1,0 +1,28 @@
+.video-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("./img/video-link.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 496px;
+  height: 228px;
+  border-radius: 10px;
+
+  &:hover img {
+    transform: scale(1.25);
+  }
+
+  img {
+    transition: transform 0.3s ease;
+  }
+
+  p {
+    text-transform: uppercase;
+    color: $white;
+    max-width: 220px;
+    text-align: center;
+  }
+}

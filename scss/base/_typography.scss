@@ -39,5 +39,19 @@ $font-primary: "Rubik", serif;
   font-weight: 400;
   font-size: 0.875em;
   line-height: 19px;
-  letter-spacing: -3%;
+  letter-spacing: -0.03em;
+}
+
+@mixin subtitle {
+  font-weight: 400;
+  font-size: 0.938em;
+  line-height: 17.78px;
+  letter-spacing: 0.25em;
+}
+
+@mixin titleSection {
+  font-weight: 700;
+  font-size: 3em;
+  line-height: 48px;
+  letter-spacing: -0.03em;
 }
