@@ -4,7 +4,7 @@
 
 <main id="pg-home">
 
-    <section class="intro">
+    <section class="intro section-aba">
         <?php
         $args = array(
             'post_type' => 'carrossel',
@@ -90,7 +90,7 @@
         </div>
     </section>
 
-    <section class="intro-about">
+    <section class="intro-about section-aba">
         <div class="container">
             <div class="about-container">
                 <div class="img">
@@ -113,7 +113,7 @@
         </div>
     </section>
 
-    <section class="products-catalog">
+    <section class="products-catalog section-aba">
         <div class="container">
             <span class="subtitle">linha de produtos</span>
             <h2>a telha que cobre o brasil</h2>
@@ -147,6 +147,48 @@
                 <?php endif; ?>
             </div>
             <a href="#" class="btn list-btn">conheça a linha completa</a>
+        </div>
+    </section>
+
+    <section class="section-blog">
+        <div class="container">
+            <div class="top">
+                <div>
+                    <span class="subtitle">Blog Imbralit</span>
+                    <h2>Confira as últimas notícias</h2>
+                </div>
+                <a href="#" class="btn">ver todas as notícias</a>
+            </div>
+            <div class="carousel-blog">
+                <?php
+                $args = array(
+                    'post_type' => 'post',
+                    'status' => 'publish',
+                    'posts_per_page' => 4,
+                    'order' => 'DESC',
+                );
+                $the_query = new WP_Query($args); ?>
+
+                <?php if ($the_query->have_posts()): ?>
+                <?php while ($the_query->have_posts()):
+                        $the_query->the_post(); ?>
+
+                <a href="<?php the_permalink(); ?>" class="item-blog">
+                    <div class="img">
+                        <img class="dkp" src="<?php the_post_thumbnail_url('large'); ?>" alt="<?php the_title(); ?>">
+                    </div>
+                    <div class="bottom">
+                        <h3><?php the_title(); ?></h3>
+                        <span class="btn-blog">+</span>
+                    </div>
+                </a>
+
+                <?php endwhile; ?>
+                <?php wp_reset_postdata(); ?>
+                <?php else: ?>
+                <p><?php _e('Desculpe, nenhum slide encontrado.'); ?></p>
+                <?php endif; ?>
+            </div>
         </div>
     </section>
 
