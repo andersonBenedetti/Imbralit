@@ -310,6 +310,32 @@
       }
     }
   }
+
+  .products-catalog {
+    background-color: $iceBlue;
+    padding: 100px 0;
+
+    .subtitle {
+      display: block;
+      @include subtitle;
+      text-transform: uppercase;
+      color: $subtitleColor;
+      text-align: center;
+    }
+
+    h2 {
+      @include titleSection;
+      color: $oceanBlue;
+      text-transform: uppercase;
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 50px;
+    }
+
+    .list-btn {
+      margin: 50px auto 0 auto;
+    }
+  }
 }
 
 @media (max-width: 1024px) {
@@ -419,6 +445,16 @@
             }
           }
         }
+      }
+    }
+
+    .products-catalog {
+      h2 {
+        margin-bottom: 20px;
+      }
+
+      .list-btn {
+        margin: 20px auto 0 auto;
       }
     }
   }
