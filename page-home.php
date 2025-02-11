@@ -17,23 +17,23 @@
         ?>
 
         <?php if ($the_query->have_posts()): ?>
-            <div class="slick-counter">1/<?= $total_slides; ?></div>
+        <div class="slick-counter">1/<?= $total_slides; ?></div>
 
-            <section class="carousel-banner">
-                <?php while ($the_query->have_posts()):
+        <section class="carousel-banner">
+            <?php while ($the_query->have_posts()):
                     $the_query->the_post(); ?>
 
-                    <a href="<?php the_field('link_img'); ?>">
-                        <img class="dkp" src="<?php the_field('img_desktop'); ?>" alt="<?php the_title(); ?>">
-                        <img class="mbl" src="<?php the_field('img_mobile'); ?>" alt="<?php the_title(); ?>">
-                    </a>
+            <a href="<?php the_field('link_img'); ?>">
+                <img class="dkp" src="<?php the_field('img_desktop'); ?>" alt="<?php the_title(); ?>">
+                <img class="mbl" src="<?php the_field('img_mobile'); ?>" alt="<?php the_title(); ?>">
+            </a>
 
-                <?php endwhile; ?>
-            </section>
+            <?php endwhile; ?>
+        </section>
 
-            <?php wp_reset_postdata(); ?>
+        <?php wp_reset_postdata(); ?>
         <?php else: ?>
-            <p><?php _e('Desculpe, nenhum slide encontrado.'); ?></p>
+        <p><?php _e('Desculpe, nenhum slide encontrado.'); ?></p>
         <?php endif; ?>
     </section>
 
@@ -110,6 +110,43 @@
                     </a>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="products-catalog">
+        <div class="container">
+            <span class="subtitle">linha de produtos</span>
+            <h2>a telha que cobre o brasil</h2>
+
+            <div class="list-products">
+                <?php
+                $args = array(
+                    'post_type' => 'produtos',
+                    'status' => 'publish',
+                    'posts_per_page' => 4,
+                    'order' => 'DESC',
+                );
+                $the_query = new WP_Query($args); ?>
+
+                <?php if ($the_query->have_posts()): ?>
+                <?php while ($the_query->have_posts()):
+                        $the_query->the_post(); ?>
+
+                <a href="<?php the_permalink(); ?>" class="item-product">
+                    <div class="img">
+                        <img class="dkp" src="<?php the_post_thumbnail_url('large'); ?>" alt="<?php the_title(); ?>">
+                    </div>
+                    <h3><?php the_title(); ?></h3>
+                    <span class="btn tertiary">ver todas</span>
+                </a>
+
+                <?php endwhile; ?>
+                <?php wp_reset_postdata(); ?>
+                <?php else: ?>
+                <p><?php _e('Desculpe, nenhum slide encontrado.'); ?></p>
+                <?php endif; ?>
+            </div>
+            <a href="#" class="btn list-btn">conheça a linha completa</a>
         </div>
     </section>
 

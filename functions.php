@@ -54,6 +54,7 @@ function custom_post_type($post_type, $singular_name, $plural_name)
 
 add_action('init', function () {
 	custom_post_type('carrossel', 'Carrossel', 'Carrossel');
+	custom_post_type('produtos', 'Produtos', 'Produtos');
 });
 
 function enqueue_slick_scripts()

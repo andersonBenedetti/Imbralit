@@ -55,3 +55,14 @@ $font-primary: "Rubik", serif;
   line-height: 48px;
   letter-spacing: -0.03em;
 }
+
+@mixin titleProduct {
+  font-weight: 700;
+  font-size: 1.313em;
+  line-height: 24.89px;
+
+  @media (max-width: 768px) {
+    font-size: 1em;
+    line-height: 20px;
+  }
+}

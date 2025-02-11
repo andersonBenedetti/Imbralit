@@ -527,6 +527,66 @@ ul {
   text-align: center;
 }
 
+.list-products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.list-products .item-product {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+.list-products .item-product .img {
+  width: 100%;
+  height: 300px;
+  position: relative;
+}
+.list-products .item-product .img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.list-products .item-product h3 {
+  font-weight: 700;
+  font-size: 1.313em;
+  line-height: 24.89px;
+  color: #223a83;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 50px;
+}
+@media (max-width: 768px) {
+  .list-products .item-product h3 {
+    font-size: 1em;
+    line-height: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .list-products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .list-products .item-product {
+    padding: 10px;
+  }
+  .list-products .item-product .img {
+    height: 150px;
+  }
+  .list-products .item-product h3 {
+    height: 40px;
+  }
+}
 #pg-home .intro {
   position: relative;
   z-index: 1;
@@ -793,6 +853,34 @@ ul {
   right: -400px;
   bottom: 0;
 }
+#pg-home .products-catalog {
+  background-color: #ecf2f6;
+  padding: 100px 0;
+}
+#pg-home .products-catalog .subtitle {
+  display: block;
+  font-weight: 400;
+  font-size: 0.938em;
+  line-height: 17.78px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #282828;
+  text-align: center;
+}
+#pg-home .products-catalog h2 {
+  font-weight: 700;
+  font-size: 3em;
+  line-height: 48px;
+  letter-spacing: -0.03em;
+  color: #008bd2;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+#pg-home .products-catalog .list-btn {
+  margin: 50px auto 0 auto;
+}
 
 @media (max-width: 1024px) {
   #pg-home .featured-grid {
@@ -881,6 +969,12 @@ ul {
   }
   #pg-home .intro-about .about-container .content .video-link::after {
     display: none;
+  }
+  #pg-home .products-catalog h2 {
+    margin-bottom: 20px;
+  }
+  #pg-home .products-catalog .list-btn {
+    margin: 20px auto 0 auto;
   }
 }
 
