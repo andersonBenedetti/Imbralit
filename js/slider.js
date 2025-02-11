@@ -19,4 +19,24 @@ jQuery(document).ready(function ($) {
     slidesToShow: 1,
     slidesToScroll: 1,
   });
+
+  jQuery(".carousel-blog").slick({
+    autoplay: true,
+    dots: false,
+    arrows: false,
+    infinite: true,
+    speed: 1000,
+    autoplaySpeed: 2000,
+    slidesToShow: 1,
+    centerMode: false,
+    variableWidth: true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          variableWidth: false,
+        },
+      },
+    ],
+  });
 });
