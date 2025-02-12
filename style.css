@@ -483,6 +483,7 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 5px;
   width: max-content;
   height: 47px;
   padding: 0 20px;
@@ -1033,6 +1034,83 @@ ul {
   text-transform: uppercase;
   margin-top: 10px;
 }
+#pg-home .social {
+  background-color: #ffffff;
+  padding: 50px 0 100px 0;
+}
+#pg-home .social::after {
+  background-image: url("./img/section-esquerda.svg");
+}
+#pg-home .social .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+#pg-home .social .content .subtitle {
+  display: block;
+  font-weight: 400;
+  font-size: 0.938em;
+  line-height: 17.78px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #282828;
+  text-align: center;
+}
+#pg-home .social .content h2 {
+  font-weight: 700;
+  font-size: 3em;
+  line-height: 48px;
+  letter-spacing: -0.03em;
+  color: #008bd2;
+  text-transform: uppercase;
+  margin-top: 10px;
+  text-align: center;
+}
+#pg-home .social-action {
+  padding: 100px 0;
+}
+#pg-home .social-action .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+#pg-home .social-action .content .text {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+#pg-home .social-action .content .text h2 {
+  font-weight: 700;
+  font-size: 3em;
+  line-height: 48px;
+  letter-spacing: -0.03em;
+  color: #223a83;
+  text-transform: uppercase;
+}
+#pg-home .social-action .content .text p {
+  max-width: 500px;
+  color: #3d3d3d;
+}
+#pg-home .social-action .content .imgs {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  display: flex;
+  justify-content: flex-start;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+#pg-home .social-action .content .imgs img {
+  width: auto;
+  max-width: none;
+  height: auto;
+  display: block;
+}
+#pg-home .social-action .content .imgs::-webkit-scrollbar {
+  height: 0;
+}
 
 @media (max-width: 1024px) {
   #pg-home .featured-grid {
@@ -1139,6 +1217,16 @@ ul {
     align-items: center;
     text-align: center;
     margin-bottom: 20px;
+  }
+  #pg-home .social-action {
+    padding: 50px 0;
+  }
+  #pg-home .social-action .content {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  #pg-home .social-action .content .text {
+    gap: 10px;
   }
 }
 

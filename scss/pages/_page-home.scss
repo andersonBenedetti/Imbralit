@@ -369,6 +369,87 @@
       }
     }
   }
+
+  .social {
+    background-color: $white;
+    padding: 50px 0 100px 0;
+
+    &::after {
+      background-image: url("./img/section-esquerda.svg");
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+
+      .subtitle {
+        display: block;
+        @include subtitle;
+        text-transform: uppercase;
+        color: $subtitleColor;
+        text-align: center;
+      }
+
+      h2 {
+        @include titleSection;
+        color: $oceanBlue;
+        text-transform: uppercase;
+        margin-top: 10px;
+        text-align: center;
+      }
+    }
+  }
+
+  .social-action {
+    padding: 100px 0;
+
+    .content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+
+      .text {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        h2 {
+          @include titleSection;
+          color: $btnColor;
+          text-transform: uppercase;
+        }
+
+        p {
+          max-width: 500px;
+          color: $textColor;
+        }
+      }
+
+      .imgs {
+        max-width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        display: flex;
+        justify-content: flex-start;
+        scrollbar-width: thin;
+        scrollbar-color: transparent transparent;
+
+        img {
+          width: auto;
+          max-width: none;
+          height: auto;
+          display: block;
+        }
+      }
+
+      .imgs::-webkit-scrollbar {
+        height: 0;
+      }
+    }
+  }
 }
 
 @media (max-width: 1024px) {
@@ -501,6 +582,19 @@
         align-items: center;
         text-align: center;
         margin-bottom: 20px;
+      }
+    }
+
+    .social-action {
+      padding: 50px 0;
+
+      .content {
+        flex-wrap: wrap;
+        gap: 20px;
+
+        .text {
+          gap: 10px;
+        }
       }
     }
   }
