@@ -2,6 +2,16 @@
 
 <?php get_header(); ?>
 
+<?php
+$catalogCat = [
+    ['link' => '#', 'img' => 'telhas.webp', 'title' => 'Telhas'],
+    ['link' => '#', 'img' => 'pecas-complementares.webp', 'title' => 'Telhas'],
+    ['link' => '#', 'img' => 'chapa-cimenticia.webp', 'title' => 'Chapa Cimentícia'],
+    ['link' => '#', 'img' => 'acessorios.webp', 'title' => 'Acessórios de fixação e vedação'],
+
+];
+?>
+
 <main id="pg-home">
 
     <section class="intro section-aba">
@@ -117,34 +127,17 @@
         <div class="container">
             <span class="subtitle">linha de produtos</span>
             <h2>a telha que cobre o brasil</h2>
-
             <div class="list-products">
-                <?php
-                $args = array(
-                    'post_type' => 'produtos',
-                    'status' => 'publish',
-                    'posts_per_page' => 4,
-                    'order' => 'DESC',
-                );
-                $the_query = new WP_Query($args); ?>
-
-                <?php if ($the_query->have_posts()): ?>
-                    <?php while ($the_query->have_posts()):
-                        $the_query->the_post(); ?>
-
-                        <a href="<?php the_permalink(); ?>" class="item-product">
-                            <div class="img">
-                                <img class="dkp" src="<?php the_post_thumbnail_url('large'); ?>" alt="<?php the_title(); ?>">
-                            </div>
-                            <h3><?php the_title(); ?></h3>
-                            <span class="btn tertiary">ver todas</span>
-                        </a>
-
-                    <?php endwhile; ?>
-                    <?php wp_reset_postdata(); ?>
-                <?php else: ?>
-                    <p><?php _e('Desculpe, nenhum slide encontrado.'); ?></p>
-                <?php endif; ?>
+                <?php foreach ($catalogCat as $cat): ?>
+                    <a href="<?= esc_url($cat['link']); ?>" class="item-product">
+                        <div class="img">
+                            <img src="<?= get_stylesheet_directory_uri(); ?>/img/<?= esc_attr($cat['img']); ?>"
+                                alt="<?= esc_attr($cat['title']); ?>">
+                        </div>
+                        <h3><?= esc_html($cat['title']); ?></h3>
+                        <span class="btn tertiary">ver mais</span>
+                    </a>
+                <?php endforeach; ?>
             </div>
             <a href="#" class="btn list-btn">conheça a linha completa</a>
         </div>
