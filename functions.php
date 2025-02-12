@@ -38,6 +38,7 @@ function custom_post_type($post_type, $singular_name, $plural_name)
 		'label' => $plural_name,
 		'description' => $plural_name,
 		'public' => true,
+		'has_archive' => true,
 		'show_ui' => true,
 		'show_in_menu' => true,
 		'capability_type' => 'post',
@@ -45,7 +46,8 @@ function custom_post_type($post_type, $singular_name, $plural_name)
 		'hierarchical' => false,
 		'rewrite' => array('slug' => $post_type, 'with_front' => true),
 		'query_var' => true,
-		'supports' => array('title', 'thumbnail'),
+		'supports' => array('title', 'editor', 'thumbnail'),
+		'taxonomies' => array('category'),
 		'labels' => $labels,
 	);
 
@@ -56,6 +58,40 @@ add_action('init', function () {
 	custom_post_type('carrossel', 'Carrossel', 'Carrossel');
 	custom_post_type('produtos', 'Produtos', 'Produtos');
 });
+
+function custom_taxonomy_produto()
+{
+	$args = array(
+		'hierarchical' => true,
+		'labels' => array(
+			'name' => 'Categorias de Produtos',
+			'singular_name' => 'Categoria de Produto',
+			'search_items' => 'Procurar Categorias',
+			'all_items' => 'Todas as Categorias',
+			'parent_item' => 'Categoria Pai',
+			'parent_item_colon' => 'Categoria Pai:',
+			'edit_item' => 'Editar Categoria',
+			'update_item' => 'Atualizar Categoria',
+			'add_new_item' => 'Adicionar Nova Categoria',
+			'new_item_name' => 'Novo Nome de Categoria',
+			'menu_name' => 'Categorias de Produtos',
+		),
+		'rewrite' => array(
+			'slug' => 'produto',
+			'with_front' => false,
+			'hierarchical' => true,
+		),
+		'show_ui' => true,
+		'show_admin_column' => true,
+		'query_var' => true,
+		'show_in_rest' => true,
+	);
+
+	register_taxonomy('produto_categoria', 'produtos', $args);
+}
+
+add_action('init', 'custom_taxonomy_produto');
+
 
 function enqueue_slick_scripts()
 {
