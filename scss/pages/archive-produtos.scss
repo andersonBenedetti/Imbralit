@@ -1,5 +1,144 @@
 #pg-products {
   .intro {
     padding: 200px 0 50px 0;
+    background-color: $btnColor;
+    border-radius: 0 0 20px 20px;
+    position: relative;
+    overflow: hidden;
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 100px;
+      position: relative;
+      z-index: 2;
+
+      h2 {
+        @include subtitleArchive;
+        color: $oceanBlue;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        @include titleArchive;
+        color: $white;
+        text-transform: uppercase;
+        max-width: 410px;
+        margin-top: 10px;
+      }
+
+      form {
+        .title-filter {
+          @include textBtn;
+          color: $white;
+          text-transform: uppercase;
+          margin-bottom: 5px;
+        }
+
+        .filters {
+          display: flex;
+          gap: 20px;
+          align-items: center;
+          flex-wrap: wrap;
+
+          select,
+          .search-box {
+            width: 320px;
+            height: 45px;
+            border-radius: 5px;
+            padding: 0 10px;
+            background-color: $iceBlue;
+          }
+
+          select {
+            @include textInfos;
+            color: $btnColor;
+          }
+
+          .search-box {
+            display: flex;
+            padding: 0;
+
+            input {
+              flex: 1;
+              border: none;
+              background: transparent;
+              padding: 10px;
+              outline: none;
+              color: inherit;
+              @include textInfos;
+              color: $btnColor;
+
+              &::placeholder {
+                color: $btnColor;
+              }
+            }
+
+            button {
+              border: none;
+              background: none;
+              cursor: pointer;
+              padding: 10px 20px 10px 10px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+          }
+        }
+      }
+    }
+
+    .img-intro {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: auto;
+      height: 90%;
+      object-fit: contain;
+      z-index: 1;
+    }
+  }
+
+  .list-products {
+    padding: 100px 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  #pg-products {
+    .intro {
+      padding: 100px 0 50px 0;
+      display: flex;
+      flex-direction: column-reverse;
+
+      .content {
+        gap: 20px;
+
+        form {
+          .filters {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+
+            select,
+            .search-box {
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      .img-intro {
+        position: relative;
+        align-self: flex-end;
+        height: 250px;
+        margin-top: -150px;
+        margin-bottom: 20px;
+      }
+    }
+
+    .list-products {
+      padding: 50px 0;
+    }
   }
 }
