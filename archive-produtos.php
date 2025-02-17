@@ -1,34 +1,33 @@
 <?php get_header(); ?>
 
 <main id="pg-products">
-
   <section class="intro">
     <div class="container">
       <div class="content">
         <div>
-          <p>linha de produtos Imbralit</p>
+          <h2>linha de produtos Imbralit</h2>
           <h1>
             <?php
             if (isset($_GET['produto_categoria']) && !empty($_GET['produto_categoria'])) {
-              // Obter a categoria baseada no parâmetro da URL
               $category = get_term_by('slug', $_GET['produto_categoria'], 'produto_categoria');
-
               if ($category) {
-                // Buscar e exibir o campo customizado da categoria usando ACF
                 $texto_categoria = get_field('texto_da_categoria', 'produto_categoria_' . $category->term_id);
                 if ($texto_categoria) {
                   echo '<p>' . esc_html($texto_categoria) . '</p>';
                 }
               }
             } else {
-              // Se nenhuma categoria estiver selecionada, exibe o título do arquivo
               post_type_archive_title();
             }
             ?>
           </h1>
-          <form method="GET" action="<?php echo esc_url(home_url('/produtos/')); ?>">
+        </div>
+
+        <form method="GET" action="<?php echo esc_url(home_url('/produtos/')); ?>">
+          <p class="title-filter">Filtre por categoria</p>
+          <div class="filters">
             <select name="produto_categoria" onchange="this.form.submit()">
-              <option value="">Selecione uma Categoria</option>
+              <option value="">Todos os produtos</option>
               <?php
               $args = array(
                 'taxonomy' => 'produto_categoria',
@@ -42,19 +41,35 @@
               }
               ?>
             </select>
-          </form>
-
-        </div>
+            <div class="search-box">
+              <input type="text" name="s" placeholder="Buscar produtos..." value="<?php echo get_search_query(); ?>">
+              <button type="submit">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/icons/search-icon.svg" alt="Lupa">
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
+    <?php
+    if (isset($_GET['produto_categoria']) && !empty($_GET['produto_categoria'])) {
+      $category = get_term_by('slug', $_GET['produto_categoria'], 'produto_categoria');
+      if ($category) {
+        $imagem_categoria = get_field('imagem_da_categoria', 'produto_categoria_' . $category->term_id);
+        if ($imagem_categoria) {
+          echo '<img class="img-intro" src="' . esc_url($imagem_categoria) . '" alt="' . esc_attr($category->name) . '" class="categoria-imagem">';
+        }
+      }
+    }
+    ?>
   </section>
 
   <div class="container">
-
     <?php
     $args = array(
       'post_type' => 'produtos',
       'posts_per_page' => -1,
+      's' => isset($_GET['s']) ? sanitize_text_field($_GET['s']) : '',
     );
 
     if (isset($_GET['produto_categoria']) && !empty($_GET['produto_categoria'])) {
@@ -98,7 +113,6 @@
       <p>Nenhum produto encontrado.</p>
     <?php endif;
     wp_reset_postdata(); ?>
-
   </div>
 </main>
 

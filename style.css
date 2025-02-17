@@ -669,7 +669,7 @@ ul {
   font-weight: 500;
   font-size: 1.5em;
   line-height: 32px;
-  letter-spacing: -3%;
+  letter-spacing: -0.03em;
   color: #ffffff;
   width: 70%;
 }
@@ -1231,6 +1231,136 @@ ul {
 }
 #pg-products .intro {
   padding: 200px 0 50px 0;
+  background-color: #223a83;
+  border-radius: 0 0 20px 20px;
+  position: relative;
+  overflow: hidden;
+}
+#pg-products .intro .content {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  position: relative;
+  z-index: 2;
+}
+#pg-products .intro .content h2 {
+  font-weight: 400;
+  font-size: 1.5em;
+  line-height: 28.44px;
+  letter-spacing: -0.03em;
+  color: #008bd2;
+  text-transform: uppercase;
+}
+#pg-products .intro .content h1 {
+  font-weight: 800;
+  font-size: 2.5em;
+  line-height: 48px;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  text-transform: uppercase;
+  max-width: 410px;
+  margin-top: 10px;
+}
+#pg-products .intro .content form .title-filter {
+  font-size: 0.875em;
+  font-weight: 600;
+  line-height: 19px;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+#pg-products .intro .content form .filters {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#pg-products .intro .content form .filters select,
+#pg-products .intro .content form .filters .search-box {
+  width: 320px;
+  height: 45px;
+  border-radius: 5px;
+  padding: 0 10px;
+  background-color: #ecf2f6;
+}
+#pg-products .intro .content form .filters select {
+  font-weight: 400;
+  font-size: 0.875em;
+  line-height: 19px;
+  letter-spacing: -0.03em;
+  color: #223a83;
+}
+#pg-products .intro .content form .filters .search-box {
+  display: flex;
+  padding: 0;
+}
+#pg-products .intro .content form .filters .search-box input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 10px;
+  outline: none;
+  color: inherit;
+  font-weight: 400;
+  font-size: 0.875em;
+  line-height: 19px;
+  letter-spacing: -0.03em;
+  color: #223a83;
+}
+#pg-products .intro .content form .filters .search-box input::placeholder {
+  color: #223a83;
+}
+#pg-products .intro .content form .filters .search-box button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 10px 20px 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#pg-products .intro .img-intro {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+  height: 90%;
+  object-fit: contain;
+  z-index: 1;
+}
+#pg-products .list-products {
+  padding: 100px 0;
+}
+
+@media (max-width: 1024px) {
+  #pg-products .intro {
+    padding: 100px 0 50px 0;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  #pg-products .intro .content {
+    gap: 20px;
+  }
+  #pg-products .intro .content form .filters {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  #pg-products .intro .content form .filters select,
+  #pg-products .intro .content form .filters .search-box {
+    width: 100%;
+  }
+  #pg-products .intro .img-intro {
+    position: relative;
+    align-self: flex-end;
+    height: 250px;
+    margin-top: -150px;
+    margin-bottom: 20px;
+  }
+  #pg-products .list-products {
+    padding: 50px 0;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

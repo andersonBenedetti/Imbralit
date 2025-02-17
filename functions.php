@@ -47,7 +47,6 @@ function custom_post_type($post_type, $singular_name, $plural_name)
 		'rewrite' => array('slug' => $post_type, 'with_front' => true),
 		'query_var' => true,
 		'supports' => array('title', 'editor', 'thumbnail'),
-		'taxonomies' => array('category'),
 		'labels' => $labels,
 	);
 

@@ -71,10 +71,24 @@ $font-primary: "Rubik", serif;
   font-weight: 500;
   font-size: 1.5em;
   line-height: 32px;
-  letter-spacing: -3%;
+  letter-spacing: -0.03em;
 
   @media (max-width: 768px) {
     font-size: 1em;
     line-height: 18.96px;
   }
+}
+
+@mixin subtitleArchive {
+  font-weight: 400;
+  font-size: 1.5em;
+  line-height: 28.44px;
+  letter-spacing: -0.03em;
+}
+
+@mixin titleArchive {
+  font-weight: 800;
+  font-size: 2.5em;
+  line-height: 48px;
+  letter-spacing: -0.03em;
 }
