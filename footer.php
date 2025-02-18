@@ -74,7 +74,21 @@
         data() {
             return {
                 activeMenu: false,
-                activeSubmenus: []
+                activeSubmenus: [],
+                activeTab: 'descricao',
+                tabs: [{
+                    id: 'descricao',
+                    label: 'Descrição'
+                },
+                {
+                    id: 'especificacoes',
+                    label: 'Especificações Técnicas'
+                },
+                {
+                    id: 'downloads',
+                    label: 'Downloads'
+                }
+                ]
             };
         },
         methods: {

@@ -92,3 +92,24 @@ $font-primary: "Rubik", serif;
   line-height: 48px;
   letter-spacing: -0.03em;
 }
+
+@mixin titleSingle {
+  font-weight: 600;
+  font-size: 2.5em;
+  line-height: 48px;
+  letter-spacing: -0.03em;
+}
+
+@mixin textRotate {
+  font-weight: 500;
+  font-size: 0.813em;
+  line-height: 15.41px;
+  letter-spacing: -0.03em;
+}
+
+@mixin btnTabs {
+  font-weight: 600;
+  font-size: 1.313em;
+  line-height: 24.89px;
+  letter-spacing: -0.03em;
+}
