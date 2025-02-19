@@ -1467,5 +1467,25 @@ ul {
   flex-direction: column;
   gap: 20px;
 }
+#single-products .products-catalog {
+  margin: 150px 0;
+}
+#single-products .products-catalog h2 {
+  font-weight: 700;
+  font-size: 3em;
+  line-height: 48px;
+  letter-spacing: -0.03em;
+  color: #223a83;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 50px;
+}
+#single-products .video-product {
+  margin-top: 50px;
+}
+#single-products .video-product .video-link {
+  background-image: url("./img/video-fundo.webp");
+  margin: 0 auto;
+}
 
 /*# sourceMappingURL=style.css.map */
