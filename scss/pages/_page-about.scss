@@ -1,0 +1,119 @@
+#pg-about {
+  .intro {
+    padding: 150px 0 50px 0;
+    background-image: url("./img/sobre-fundo.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &::after {
+      background-image: url("./img/section-esquerda.svg");
+      background-position: left top;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 50px;
+      text-align: center;
+
+      h2 {
+        @include subtitle;
+        text-transform: uppercase;
+        color: $white;
+      }
+
+      h1 {
+        @include titleSection;
+        text-transform: uppercase;
+        color: $white;
+        max-width: 510px;
+        margin-top: 10px;
+
+        span {
+          color: #ffe5a6;
+        }
+      }
+
+      .img {
+        max-width: 750px;
+        object-fit: contain;
+        border-radius: 10px;
+      }
+
+      .btn-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+
+        p {
+          text-transform: uppercase;
+          color: $white;
+        }
+
+        img {
+          transition: transform 0.3s ease;
+        }
+
+        &:hover img {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  .section-infos {
+    padding: 100px 0 250px;
+    position: relative;
+
+    .texts {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 1110px;
+
+      h2 {
+        @include titleSingle;
+        color: $oceanBlue;
+      }
+    }
+
+    .video-link {
+      background-image: url("./img/video-sobre.webp");
+      width: 714px;
+      height: 403px;
+      position: absolute;
+      bottom: -250px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  #pg-about {
+    .intro {
+      padding: 100px 0 100px 0;
+
+      .content {
+        gap: 20px;
+
+        .img {
+          max-width: 100%;
+        }
+      }
+    }
+
+    .section-infos {
+      padding: 20px 0 150px;
+
+      .video-link {
+        width: calc(100% - 40px);
+        height: 200px;
+        bottom: -100px;
+      }
+    }
+  }
+}

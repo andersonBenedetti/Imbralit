@@ -1488,4 +1488,111 @@ ul {
   margin: 0 auto;
 }
 
+#pg-about .intro {
+  padding: 150px 0 50px 0;
+  background-image: url("./img/sobre-fundo.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#pg-about .intro::after {
+  background-image: url("./img/section-esquerda.svg");
+  background-position: left top;
+}
+#pg-about .intro .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  text-align: center;
+}
+#pg-about .intro .content h2 {
+  font-weight: 400;
+  font-size: 0.938em;
+  line-height: 17.78px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+#pg-about .intro .content h1 {
+  font-weight: 700;
+  font-size: 3em;
+  line-height: 48px;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: #ffffff;
+  max-width: 510px;
+  margin-top: 10px;
+}
+#pg-about .intro .content h1 span {
+  color: #ffe5a6;
+}
+#pg-about .intro .content .img {
+  max-width: 750px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+#pg-about .intro .content .btn-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+#pg-about .intro .content .btn-section p {
+  text-transform: uppercase;
+  color: #ffffff;
+}
+#pg-about .intro .content .btn-section img {
+  transition: transform 0.3s ease;
+}
+#pg-about .intro .content .btn-section:hover img {
+  transform: scale(1.1);
+}
+#pg-about .section-infos {
+  padding: 100px 0 250px;
+  position: relative;
+}
+#pg-about .section-infos .texts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1110px;
+}
+#pg-about .section-infos .texts h2 {
+  font-weight: 600;
+  font-size: 2.5em;
+  line-height: 48px;
+  letter-spacing: -0.03em;
+  color: #008bd2;
+}
+#pg-about .section-infos .video-link {
+  background-image: url("./img/video-sobre.webp");
+  width: 714px;
+  height: 403px;
+  position: absolute;
+  bottom: -250px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 1024px) {
+  #pg-about .intro {
+    padding: 100px 0 100px 0;
+  }
+  #pg-about .intro .content {
+    gap: 20px;
+  }
+  #pg-about .intro .content .img {
+    max-width: 100%;
+  }
+  #pg-about .section-infos {
+    padding: 20px 0 150px;
+  }
+  #pg-about .section-infos .video-link {
+    width: calc(100% - 40px);
+    height: 200px;
+    bottom: -100px;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
