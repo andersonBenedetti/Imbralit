@@ -88,6 +88,199 @@
       bottom: -250px;
       left: 50%;
       transform: translateX(-50%);
+      z-index: 99;
+    }
+  }
+
+  .our-story {
+    padding: 350px 0 100px 0;
+    background-color: $btnColor;
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: $white;
+
+      h2 {
+        @include titleSection;
+        text-transform: uppercase;
+      }
+
+      p {
+        max-width: 400px;
+
+        span {
+          font-weight: bold;
+        }
+      }
+    }
+
+    .carousel-story {
+      padding-top: 100px;
+
+      .slick-arrow {
+        position: absolute;
+        top: 20px;
+        z-index: 999;
+        padding: 5px;
+        border: 0;
+        border-radius: 50%;
+        font-size: 0;
+        outline: none;
+        overflow: hidden;
+        background: transparent;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+
+        &.slick-prev {
+          right: 2%;
+          margin-right: 50px;
+        }
+
+        &.slick-next {
+          right: 2%;
+
+          &::before {
+            transform: rotate(180deg);
+          }
+        }
+
+        &.slick-disabled {
+          opacity: 0.3;
+        }
+
+        &::before {
+          background-image: url("./img/icons/arrow-carrossel.svg");
+          background-size: 32px 32px;
+          display: inline-block;
+          width: 32px;
+          height: 32px;
+          content: "";
+        }
+      }
+
+      .slick-slide {
+        margin: 0 10px;
+      }
+
+      .slick-list {
+        margin: 0 -10px;
+      }
+
+      .item {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        overflow: hidden;
+
+        .logo {
+          width: 100%;
+          height: 108px;
+
+          img {
+            width: 100%;
+            object-fit: contain;
+          }
+        }
+
+        .date {
+          @include dateText;
+          color: $white;
+          position: relative;
+          margin-bottom: 20px;
+
+          &::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 1px;
+            background: $lineDate;
+            position: absolute;
+            left: 100px;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+
+          &::before {
+            content: "";
+            width: 5px;
+            height: 5px;
+            background: $lineDate;
+            border-radius: 50%;
+            position: absolute;
+            left: 100px;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+        }
+
+        .infos {
+          width: 100%;
+          height: 300px;
+          border-bottom-right-radius: 8px;
+          border-bottom-left-radius: 8px;
+          padding: 24px;
+          background-color: $backgroundItem;
+          position: relative;
+
+          &::after {
+            position: absolute;
+            top: -23px;
+            left: 0;
+            content: "";
+            width: 100%;
+            height: 24px;
+            background-image: url("./img/item.svg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: right top;
+          }
+
+          h3 {
+            @include titleInfos;
+            text-transform: uppercase;
+            color: $btnColor;
+            margin-bottom: 10px;
+          }
+
+          p {
+            @include textItem;
+            color: $textGray;
+          }
+        }
+
+        &:nth-child(odd) .infos {
+          background-color: $backgroundItem;
+          &::after {
+            background-image: url("./img/item.svg");
+          }
+        }
+
+        &:nth-child(even) .infos {
+          background-color: $white;
+          &::after {
+            background-image: url("./img/item-branco.svg");
+          }
+        }
+
+        .img {
+          width: 100%;
+          height: 208px;
+          border-radius: 8px;
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
     }
   }
 }
