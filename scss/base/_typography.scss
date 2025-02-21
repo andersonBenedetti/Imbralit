@@ -113,3 +113,17 @@ $font-primary: "Rubik", serif;
   line-height: 24.89px;
   letter-spacing: -0.03em;
 }
+
+@mixin dateText {
+  font-weight: 700;
+  font-size: 1.375em;
+  line-height: 26.07px;
+  letter-spacing: -0.03em;
+}
+
+@mixin textItem {
+  font-weight: 400;
+  font-size: 0.875em;
+  line-height: 21px;
+  letter-spacing: -0.03em;
+}

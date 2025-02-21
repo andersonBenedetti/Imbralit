@@ -39,4 +39,23 @@ jQuery(document).ready(function ($) {
       },
     ],
   });
+
+  jQuery(".carousel-story").slick({
+    autoplay: false,
+    dots: false,
+    arrows: true,
+    infinite: false,
+    speed: 1000,
+    autoplaySpeed: 2000,
+    slidesToShow: 4,
+    swipeToSlide: true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1.5,
+        },
+      },
+    ],
+  });
 });

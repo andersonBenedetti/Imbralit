@@ -1573,6 +1573,182 @@ ul {
   bottom: -250px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 99;
+}
+#pg-about .our-story {
+  padding: 350px 0 100px 0;
+  background-color: #223a83;
+}
+#pg-about .our-story .top {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  color: #ffffff;
+}
+#pg-about .our-story .top h2 {
+  font-weight: 700;
+  font-size: 3em;
+  line-height: 48px;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+#pg-about .our-story .top p {
+  max-width: 400px;
+}
+#pg-about .our-story .top p span {
+  font-weight: bold;
+}
+#pg-about .our-story .carousel-story {
+  padding-top: 100px;
+}
+#pg-about .our-story .carousel-story .slick-arrow {
+  position: absolute;
+  top: 20px;
+  z-index: 999;
+  padding: 5px;
+  border: 0;
+  border-radius: 50%;
+  font-size: 0;
+  outline: none;
+  overflow: hidden;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+#pg-about .our-story .carousel-story .slick-arrow:hover {
+  transform: scale(1.1);
+}
+#pg-about .our-story .carousel-story .slick-arrow.slick-prev {
+  right: 2%;
+  margin-right: 50px;
+}
+#pg-about .our-story .carousel-story .slick-arrow.slick-next {
+  right: 2%;
+}
+#pg-about .our-story .carousel-story .slick-arrow.slick-next::before {
+  transform: rotate(180deg);
+}
+#pg-about .our-story .carousel-story .slick-arrow.slick-disabled {
+  opacity: 0.3;
+}
+#pg-about .our-story .carousel-story .slick-arrow::before {
+  background-image: url("./img/icons/arrow-carrossel.svg");
+  background-size: 32px 32px;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  content: "";
+}
+#pg-about .our-story .carousel-story .slick-slide {
+  margin: 0 10px;
+}
+#pg-about .our-story .carousel-story .slick-list {
+  margin: 0 -10px;
+}
+#pg-about .our-story .carousel-story .item {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow: hidden;
+}
+#pg-about .our-story .carousel-story .item .logo {
+  width: 100%;
+  height: 108px;
+}
+#pg-about .our-story .carousel-story .item .logo img {
+  width: 100%;
+  object-fit: contain;
+}
+#pg-about .our-story .carousel-story .item .date {
+  font-weight: 700;
+  font-size: 1.375em;
+  line-height: 26.07px;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  position: relative;
+  margin-bottom: 20px;
+}
+#pg-about .our-story .carousel-story .item .date::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #a4c5d5;
+  position: absolute;
+  left: 100px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#pg-about .our-story .carousel-story .item .date::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  background: #a4c5d5;
+  border-radius: 50%;
+  position: absolute;
+  left: 100px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#pg-about .our-story .carousel-story .item .infos {
+  width: 100%;
+  height: 300px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  padding: 24px;
+  background-color: #cfe0e8;
+  position: relative;
+}
+#pg-about .our-story .carousel-story .item .infos::after {
+  position: absolute;
+  top: -23px;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 24px;
+  background-image: url("./img/item.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+#pg-about .our-story .carousel-story .item .infos h3 {
+  font-size: 1.5em;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: #223a83;
+  margin-bottom: 10px;
+}
+#pg-about .our-story .carousel-story .item .infos p {
+  font-weight: 400;
+  font-size: 0.875em;
+  line-height: 21px;
+  letter-spacing: -0.03em;
+  color: #2e4d5e;
+}
+#pg-about .our-story .carousel-story .item:nth-child(odd) .infos {
+  background-color: #cfe0e8;
+}
+#pg-about .our-story .carousel-story .item:nth-child(odd) .infos::after {
+  background-image: url("./img/item.svg");
+}
+#pg-about .our-story .carousel-story .item:nth-child(even) .infos {
+  background-color: #ffffff;
+}
+#pg-about .our-story .carousel-story .item:nth-child(even) .infos::after {
+  background-image: url("./img/item-branco.svg");
+}
+#pg-about .our-story .carousel-story .item .img {
+  width: 100%;
+  height: 208px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+#pg-about .our-story .carousel-story .item .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 @media (max-width: 1024px) {
