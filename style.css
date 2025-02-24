@@ -1750,6 +1750,182 @@ ul {
   height: 100%;
   object-fit: cover;
 }
+#pg-about .certificates {
+  padding: 50px 0 150px 0;
+}
+#pg-about .certificates::after {
+  background-image: url("./img/section-esquerda-branco.svg");
+  background-position: left top;
+}
+#pg-about .certificates .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+#pg-about .certificates .content .texts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 550px;
+}
+#pg-about .certificates .content .texts h2 {
+  font-weight: 700;
+  font-size: 3em;
+  line-height: 48px;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: #008bd2;
+}
+#pg-about .certificates .content .infos {
+  max-width: 620px;
+  width: 100%;
+}
+#pg-about .certificates .content .infos h4 {
+  font-weight: 400;
+  font-size: 0.938em;
+  line-height: 17.78px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+#pg-about .certificates .content .infos h3 {
+  font-weight: 600;
+  font-size: 2.5em;
+  line-height: 48px;
+  letter-spacing: -0.03em;
+  color: #008bd2;
+  margin: 10px 0;
+}
+#pg-about .certificates .content .infos .items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 10px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+}
+#pg-about .certificates .content .infos .items .item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+#pg-about .certificates .content .infos .items .item .icon {
+  width: 90px;
+  height: 90px;
+}
+#pg-about .certificates .content .infos .items .item p {
+  font-weight: 400;
+  font-size: 1.125em;
+  line-height: 32px;
+  letter-spacing: -0.05em;
+}
+#pg-about .certificates .content .infos .items .item a {
+  display: flex;
+  gap: 5px;
+  transition: transform 0.3s ease;
+}
+#pg-about .certificates .content .infos .items .item a:hover {
+  transform: scale(1.05);
+}
+#pg-about .certificates .content .infos .items .item a span {
+  font-weight: 400;
+  font-size: 1.125em;
+  line-height: 32px;
+  letter-spacing: -0.05em;
+  color: #223a83;
+  text-decoration: underline;
+}
+#pg-about .social {
+  padding: 150px 0 200px 0;
+  background-color: #ffffff;
+  margin-bottom: -100px;
+}
+#pg-about .social .content {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+}
+#pg-about .social .content .texts {
+  min-width: 390px;
+  max-width: 390px;
+}
+#pg-about .social .content .texts h2 {
+  font-weight: 700;
+  font-size: 3em;
+  line-height: 48px;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: #008bd2;
+  margin-bottom: 30px;
+}
+#pg-about .social .content .carousel-social {
+  max-width: 800px;
+}
+#pg-about .social .content .carousel-social .slick-arrow {
+  position: absolute;
+  top: -80px;
+  z-index: 999;
+  padding: 5px;
+  border: 0;
+  border-radius: 50%;
+  font-size: 0;
+  outline: none;
+  overflow: hidden;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+#pg-about .social .content .carousel-social .slick-arrow:hover {
+  transform: scale(1.1);
+}
+#pg-about .social .content .carousel-social .slick-arrow.slick-prev {
+  right: 2%;
+  margin-right: 100px;
+}
+#pg-about .social .content .carousel-social .slick-arrow.slick-next {
+  right: 2%;
+}
+#pg-about .social .content .carousel-social .slick-arrow.slick-next::before {
+  transform: rotate(180deg);
+}
+#pg-about .social .content .carousel-social .slick-arrow.slick-disabled {
+  opacity: 0.3;
+}
+#pg-about .social .content .carousel-social .slick-arrow::before {
+  background-image: url("./img/icons/arrow-social.svg");
+  background-size: 70px 70px;
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  content: "";
+}
+#pg-about .social .content .carousel-social .slick-slide {
+  margin: 0 10px;
+}
+#pg-about .social .content .carousel-social .slick-list {
+  margin: 0 -10px;
+}
+#pg-about .social .content .carousel-social .item {
+  background-color: #ecf2f6;
+  padding: 20px;
+}
+#pg-about .social .content .carousel-social .item .img {
+  width: 100%;
+  height: 100px;
+}
+#pg-about .social .content .carousel-social .item .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+#pg-about .social .content .carousel-social .item h3 {
+  margin: 50px 0 20px 0;
+  font-weight: 600;
+  font-size: 1.313em;
+  line-height: 24.89px;
+  letter-spacing: -0.03em;
+  color: #223a83;
+}
 
 @media (max-width: 1024px) {
   #pg-about .intro {

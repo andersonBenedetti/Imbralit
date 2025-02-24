@@ -56,6 +56,8 @@ function custom_post_type($post_type, $singular_name, $plural_name)
 add_action('init', function () {
 	custom_post_type('carrossel', 'Carrossel', 'Carrossel');
 	custom_post_type('produtos', 'Produtos', 'Produtos');
+	custom_post_type('certificados', 'Certificados', 'Certificados');
+	custom_post_type('compromisso_social', 'Compromisso Social', 'Compromisso Social');
 });
 
 function custom_taxonomy_produto()
