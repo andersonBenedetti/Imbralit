@@ -127,3 +127,10 @@ $font-primary: "Rubik", serif;
   line-height: 21px;
   letter-spacing: -0.03em;
 }
+
+@mixin titleCertificates {
+  font-weight: 400;
+  font-size: 1.125em;
+  line-height: 32px;
+  letter-spacing: -0.05em;
+}

@@ -283,6 +283,194 @@
       }
     }
   }
+
+  .certificates {
+    padding: 50px 0 150px 0;
+
+    &::after {
+      background-image: url("./img/section-esquerda-branco.svg");
+      background-position: left top;
+    }
+
+    .content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 50px;
+
+      .texts {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 550px;
+
+        h2 {
+          @include titleSection;
+          text-transform: uppercase;
+          color: $oceanBlue;
+        }
+      }
+
+      .infos {
+        max-width: 620px;
+        width: 100%;
+
+        h4 {
+          @include subtitle;
+          text-transform: uppercase;
+        }
+
+        h3 {
+          @include titleSingle;
+          color: $oceanBlue;
+          margin: 10px 0;
+        }
+
+        .items {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px 10px;
+          background-color: $white;
+          border-radius: 8px;
+          padding: 20px;
+
+          .item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            .icon {
+              width: 90px;
+              height: 90px;
+            }
+
+            p {
+              @include titleCertificates;
+            }
+
+            a {
+              display: flex;
+              gap: 5px;
+              transition: transform 0.3s ease;
+
+              &:hover {
+                transform: scale(1.05);
+              }
+
+              span {
+                @include titleCertificates;
+                color: $btnColor;
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .social {
+    padding: 150px 0 200px 0;
+    background-color: $white;
+    margin-bottom: -100px;
+
+    .content {
+      display: flex;
+      justify-content: space-between;
+      gap: 50px;
+
+      .texts {
+        min-width: 390px;
+        max-width: 390px;
+
+        h2 {
+          @include titleSection;
+          text-transform: uppercase;
+          color: $oceanBlue;
+          margin-bottom: 30px;
+        }
+      }
+
+      .carousel-social {
+        max-width: 800px;
+
+        .slick-arrow {
+          position: absolute;
+          top: -80px;
+          z-index: 999;
+          padding: 5px;
+          border: 0;
+          border-radius: 50%;
+          font-size: 0;
+          outline: none;
+          overflow: hidden;
+          background: transparent;
+          cursor: pointer;
+          transition: transform 0.3s ease;
+
+          &:hover {
+            transform: scale(1.1);
+          }
+
+          &.slick-prev {
+            right: 2%;
+            margin-right: 100px;
+          }
+
+          &.slick-next {
+            right: 2%;
+
+            &::before {
+              transform: rotate(180deg);
+            }
+          }
+
+          &.slick-disabled {
+            opacity: 0.3;
+          }
+
+          &::before {
+            background-image: url("./img/icons/arrow-social.svg");
+            background-size: 70px 70px;
+            display: inline-block;
+            width: 70px;
+            height: 70px;
+            content: "";
+          }
+        }
+
+        .slick-slide {
+          margin: 0 10px;
+        }
+
+        .slick-list {
+          margin: 0 -10px;
+        }
+
+        .item {
+          background-color: $iceBlue;
+          padding: 20px;
+
+          .img {
+            width: 100%;
+            height: 100px;
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+            }
+          }
+
+          h3 {
+            margin: 50px 0 20px 0;
+            @include btnTabs;
+            color: $btnColor;
+          }
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: 1024px) {

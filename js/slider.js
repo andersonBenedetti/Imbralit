@@ -58,4 +58,22 @@ jQuery(document).ready(function ($) {
       },
     ],
   });
+
+  jQuery(".carousel-social").slick({
+    autoplay: true,
+    dots: false,
+    arrows: true,
+    infinite: true,
+    speed: 1000,
+    autoplaySpeed: 2000,
+    slidesToShow: 2,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  });
 });
