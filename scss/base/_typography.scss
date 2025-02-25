@@ -134,3 +134,10 @@ $font-primary: "Rubik", serif;
   line-height: 32px;
   letter-spacing: -0.05em;
 }
+
+@mixin titlePost {
+  font-weight: 600;
+  font-size: 1em;
+  line-height: 24px;
+  letter-spacing: -0.03em;
+}

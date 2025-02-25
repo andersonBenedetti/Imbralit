@@ -179,7 +179,7 @@ $catalogCat = [
                     <?php endwhile; ?>
                     <?php wp_reset_postdata(); ?>
                 <?php else: ?>
-                    <p><?php _e('Desculpe, nenhum slide encontrado.'); ?></p>
+                    <p><?php _e('Desculpe, nenhum post encontrado.'); ?></p>
                 <?php endif; ?>
             </div>
         </div>
