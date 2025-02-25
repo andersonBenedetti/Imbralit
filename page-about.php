@@ -118,21 +118,21 @@ de 4 mm, que logo foi apelidada de "telhinha" pelo mercado, assim como se adequa
             </div>
             <div class="carousel-story">
                 <?php foreach ($itemsStory as $item): ?>
-                    <div class="item">
-                        <div class="logo">
-                            <img src="<?= get_stylesheet_directory_uri(); ?>/img/<?= esc_attr($item['logo']); ?>"
-                                alt="Logo Imbralit">
-                        </div>
-                        <p class="date"><?= esc_html($item['date']); ?></p>
-                        <div class="infos">
-                            <h3><?= esc_html($item['title']); ?></h3>
-                            <p><?= esc_html($item['text']); ?></p>
-                        </div>
-                        <div class="img">
-                            <img src="<?= get_stylesheet_directory_uri(); ?>/img/<?= esc_attr($item['img']); ?>"
-                                alt="<?= esc_attr($item['title']); ?>">
-                        </div>
+                <div class="item">
+                    <div class="logo">
+                        <img src="<?= get_stylesheet_directory_uri(); ?>/img/<?= esc_attr($item['logo']); ?>"
+                            alt="Logo Imbralit">
                     </div>
+                    <p class="date"><?= esc_html($item['date']); ?></p>
+                    <div class="infos">
+                        <h3><?= esc_html($item['title']); ?></h3>
+                        <p><?= esc_html($item['text']); ?></p>
+                    </div>
+                    <div class="img">
+                        <img src="<?= get_stylesheet_directory_uri(); ?>/img/<?= esc_attr($item['img']); ?>"
+                            alt="<?= esc_attr($item['title']); ?>">
+                    </div>
+                </div>
                 <?php endforeach; ?>
             </div>
         </div>
@@ -172,25 +172,26 @@ de 4 mm, que logo foi apelidada de "telhinha" pelo mercado, assim como se adequa
                         $the_query = new WP_Query($args); ?>
 
                         <?php if ($the_query->have_posts()): ?>
-                            <?php while ($the_query->have_posts()):
+                        <?php while ($the_query->have_posts()):
                                 $the_query->the_post(); ?>
 
-                                <div class="item">
-                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/icons/pdf.svg" alt="Baixar PDF">
-                                    <div>
-                                        <p><?php the_title(); ?></p>
-                                        <a href="<?php the_field('arquivo_para_download'); ?>">
-                                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/icons/baixar.svg"
-                                                alt="Baixar">
-                                            <span>Baixar</span>
-                                        </a>
-                                    </div>
-                                </div>
+                        <div class="item">
+                            <img class="icon" src="<?php echo get_stylesheet_directory_uri(); ?>/img/icons/pdf.svg"
+                                alt="Baixar PDF">
+                            <div>
+                                <p><?php the_title(); ?></p>
+                                <a href="<?php the_field('arquivo_para_download'); ?>">
+                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/icons/baixar.svg"
+                                        alt="Baixar">
+                                    <span>Baixar</span>
+                                </a>
+                            </div>
+                        </div>
 
-                            <?php endwhile; ?>
-                            <?php wp_reset_postdata(); ?>
+                        <?php endwhile; ?>
+                        <?php wp_reset_postdata(); ?>
                         <?php else: ?>
-                            <p><?php _e('Desculpe, nenhum certificado encontrado.'); ?></p>
+                        <p><?php _e('Desculpe, nenhum certificado encontrado.'); ?></p>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -222,22 +223,22 @@ de 4 mm, que logo foi apelidada de "telhinha" pelo mercado, assim como se adequa
                     $the_query = new WP_Query($args); ?>
 
                     <?php if ($the_query->have_posts()): ?>
-                        <?php while ($the_query->have_posts()):
+                    <?php while ($the_query->have_posts()):
                             $the_query->the_post(); ?>
 
-                            <div class="item">
-                                <div class="img">
-                                    <img class="dkp" src="<?php the_post_thumbnail_url('large'); ?>"
-                                        alt="<?php the_title(); ?>">
-                                </div>
-                                <h3><?php the_title(); ?></h3>
-                                <p><?php the_content(); ?></p>
-                            </div>
+                    <div class="item">
+                        <div class="img">
+                            <img class="dkp" src="<?php the_post_thumbnail_url('large'); ?>"
+                                alt="<?php the_title(); ?>">
+                        </div>
+                        <h3><?php the_title(); ?></h3>
+                        <p><?php the_content(); ?></p>
+                    </div>
 
-                        <?php endwhile; ?>
-                        <?php wp_reset_postdata(); ?>
+                    <?php endwhile; ?>
+                    <?php wp_reset_postdata(); ?>
                     <?php else: ?>
-                        <p><?php _e('Desculpe, nenhum slide encontrado.'); ?></p>
+                    <p><?php _e('Desculpe, nenhum slide encontrado.'); ?></p>
                     <?php endif; ?>
                 </div>
             </div>

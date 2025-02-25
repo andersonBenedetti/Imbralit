@@ -496,5 +496,121 @@
         bottom: -100px;
       }
     }
+
+    .our-story {
+      padding: 150px 0 50px 0;
+
+      .top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .carousel-story {
+        padding-top: 100px;
+
+        .slick-arrow {
+          left: 50%;
+          transform: translateX(-50%);
+          right: inherit !important;
+
+          &.slick-prev {
+            margin-left: -25px;
+          }
+
+          &.slick-next {
+            margin-left: 25px;
+          }
+        }
+      }
+    }
+
+    .certificates {
+      padding: 50px 0 100px 0;
+
+      .content {
+        flex-direction: column;
+
+        .infos {
+          .items {
+            grid-template-columns: repeat(1, 1fr);
+
+            .item {
+              .icon {
+                width: 60px;
+                height: 60px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .social {
+      padding: 50px 0 150px 0;
+
+      .content {
+        flex-direction: column;
+        gap: 100px;
+
+        .texts {
+          min-width: inherit;
+        }
+
+        .carousel-social {
+          .slick-arrow {
+            left: 50%;
+            transform: translateX(-50%);
+            right: inherit !important;
+            top: -70px;
+
+            &.slick-prev {
+              margin-right: 0;
+              margin-left: -35px;
+            }
+
+            &.slick-next {
+              margin-left: 35px;
+            }
+
+            &::before {
+              background-size: 50px 50px;
+              width: 50px;
+              height: 50px;
+            }
+          }
+
+          .slick-slide {
+            margin: 0 10px;
+          }
+
+          .slick-list {
+            margin: 0 -10px;
+          }
+
+          .item {
+            background-color: $iceBlue;
+            padding: 20px;
+
+            .img {
+              width: 100%;
+              height: 100px;
+
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+              }
+            }
+
+            h3 {
+              margin: 50px 0 20px 0;
+              @include btnTabs;
+              color: $btnColor;
+            }
+          }
+        }
+      }
+    }
   }
 }
