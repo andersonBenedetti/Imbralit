@@ -59,6 +59,7 @@
       margin-bottom: 50px;
 
       h2 {
+        max-width: 900px;
         @include titleSection;
         color: $oceanBlue;
         text-transform: uppercase;
