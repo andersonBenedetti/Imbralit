@@ -141,3 +141,45 @@ $font-primary: "Rubik", serif;
   line-height: 24px;
   letter-spacing: -0.03em;
 }
+
+@mixin postH3 {
+  font-weight: 700;
+  font-size: 2.5em;
+  line-height: 48px;
+  letter-spacing: 0;
+}
+
+@mixin postH4 {
+  font-weight: 600;
+  font-size: 2.125em;
+  line-height: 48px;
+  letter-spacing: -0.03em;
+}
+
+@mixin postH5 {
+  font-weight: 700;
+  font-size: 1.5em;
+  line-height: 27px;
+  letter-spacing: -0.03em;
+}
+
+@mixin textShare {
+  font-weight: 500;
+  font-size: 1.5em;
+  line-height: 20px;
+  letter-spacing: -0.15em;
+}
+
+@mixin titleAside {
+  font-weight: 700;
+  font-size: 1em;
+  line-height: 27px;
+  letter-spacing: -0.03em;
+}
+
+@mixin textAside {
+  font-weight: 400;
+  font-size: 0.75em;
+  line-height: 19px;
+  letter-spacing: -0.03em;
+}
