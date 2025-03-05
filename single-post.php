@@ -96,6 +96,7 @@
                                 'status' => 'publish',
                                 'posts_per_page' => 3,
                                 'order' => 'DESC',
+                                'post__not_in' => array(get_the_ID()),
                             );
                             $the_query = new WP_Query($args); ?>
 
@@ -154,4 +155,43 @@
         </div>
     </section>
 
-</main><?php get_footer(); ?>
+    <section class="section-blog">
+        <div class="container">
+            <h2>Mais noticias</h2>
+            <div class="carousel-blog">
+                <?php
+                $args = array(
+                    'post_type' => 'post',
+                    'status' => 'publish',
+                    'posts_per_page' => 4,
+                    'order' => 'DESC',
+                    'post__not_in' => array(get_the_ID()),
+                );
+                $the_query = new WP_Query($args); ?>
+
+                <?php if ($the_query->have_posts()): ?>
+                    <?php while ($the_query->have_posts()):
+                        $the_query->the_post(); ?>
+
+                        <a href="<?php the_permalink(); ?>" class="item-blog">
+                            <div class="img">
+                                <img class="dkp" src="<?php the_post_thumbnail_url('large'); ?>" alt="<?php the_title(); ?>">
+                            </div>
+                            <div class="bottom">
+                                <h3><?php the_title(); ?></h3>
+                                <span class="btn-blog">+</span>
+                            </div>
+                        </a>
+
+                    <?php endwhile; ?>
+                    <?php wp_reset_postdata(); ?>
+                <?php else: ?>
+                    <p><?php _e('Desculpe, nenhum post encontrado.'); ?></p>
+                <?php endif; ?>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<?php get_footer(); ?>
