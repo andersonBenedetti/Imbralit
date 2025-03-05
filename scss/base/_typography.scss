@@ -183,3 +183,10 @@ $font-primary: "Rubik", serif;
   line-height: 19px;
   letter-spacing: -0.03em;
 }
+
+@mixin labelForm {
+  font-weight: 400;
+  font-size: 0.875em;
+  line-height: 19px;
+  letter-spacing: -0.03em;
+}

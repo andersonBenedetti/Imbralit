@@ -1,0 +1,75 @@
+#pg-assistance {
+  .intro {
+    background-image: url("./img/assistencia.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 150px 0 150px 0;
+
+    &::after {
+      background-image: url("./img/section-esquerda.svg");
+      background-position: left top;
+    }
+
+    h1 {
+      @include titleSection;
+      text-transform: uppercase;
+      color: $white;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: $white;
+      max-width: 400px;
+    }
+  }
+
+  .content-form {
+    &::after {
+      background-image: url("./img/section-esquerda-branco.svg");
+      background-position: left top;
+    }
+
+    > div {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 50px 20px 100px 20px;
+
+      .top {
+        h2 {
+          @include titleSection;
+          color: $oceanBlue;
+          text-transform: uppercase;
+          margin-bottom: 20px;
+        }
+      }
+
+      #form-contact {
+        padding: 20px 0;
+
+        .form-row {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 30px;
+          margin-bottom: 30px;
+        }
+
+        h3 {
+          @include btnTabs;
+          margin-bottom: 10px;
+        }
+
+        .form-actions {
+          display: flex;
+          flex-direction: column;
+          align-items: end;
+          gap: 20px;
+
+          .btn {
+            width: 185px;
+          }
+        }
+      }
+    }
+  }
+}
