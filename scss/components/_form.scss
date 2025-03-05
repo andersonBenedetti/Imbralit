@@ -102,3 +102,26 @@
     }
   }
 }
+
+@media (max-width: 1024px) {
+  #form-contact {
+    .upload-field {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .radio-options {
+      grid-template-columns: 1fr;
+    }
+
+    .fields-row {
+      grid-template-columns: repeat(3, 1fr);
+
+      label {
+        display: flex;
+        min-height: 40px;
+        align-items: end;
+      }
+    }
+  }
+}
