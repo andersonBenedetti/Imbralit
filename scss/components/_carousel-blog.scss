@@ -6,13 +6,16 @@
   .slick-list {
     margin: 0 -10px;
   }
+
+  .item-blog {
+    height: 490px;
+  }
 }
 
 .item-blog {
   display: flex !important;
   max-width: 740px;
   width: 100%;
-  height: 490px;
   flex-direction: column;
   border-radius: 10px;
   overflow: hidden;
@@ -74,9 +77,11 @@
 }
 
 @media (max-width: 768px) {
-  .item-blog {
+  .carousel-blog .item-blog {
     height: 250px;
+  }
 
+  .item-blog {
     .bottom {
       gap: 10px;
 

@@ -628,12 +628,14 @@ ul {
 .carousel-blog .slick-list {
   margin: 0 -10px;
 }
+.carousel-blog .item-blog {
+  height: 490px;
+}
 
 .item-blog {
   display: flex !important;
   max-width: 740px;
   width: 100%;
-  height: 490px;
   flex-direction: column;
   border-radius: 10px;
   overflow: hidden;
@@ -698,7 +700,7 @@ ul {
 }
 
 @media (max-width: 768px) {
-  .item-blog {
+  .carousel-blog .item-blog {
     height: 250px;
   }
   .item-blog .bottom {
@@ -1606,7 +1608,7 @@ ul {
   font-weight: 500;
   font-size: 1.5em;
   line-height: 20px;
-  letter-spacing: -0.15em;
+  letter-spacing: -0.015em;
   color: #2a4250;
 }
 #pg-post .content-post .infos-post .btns-post .share-buttons {
@@ -1632,6 +1634,8 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  position: sticky;
+  top: 100px;
 }
 #pg-post .content-post .main-aside .title {
   font-weight: 700;
@@ -1773,7 +1777,37 @@ ul {
   width: 18px;
   object-fit: contain;
 }
+#pg-post .section-blog {
+  padding: 100px 0;
+}
+#pg-post .section-blog h2 {
+  font-weight: 700;
+  font-size: 3em;
+  line-height: 48px;
+  letter-spacing: -0.03em;
+  color: #008bd2;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+}
 
+@media (max-width: 1024px) {
+  #pg-post .intro {
+    padding: 100px 0 20px 0;
+  }
+  #pg-post .content-post .infos-post {
+    flex-wrap: wrap;
+  }
+  #pg-post .content-post .infos-post .btns-post {
+    flex-direction: column;
+    margin-top: 50px;
+  }
+  #pg-post .section-blog {
+    padding: 50px 0;
+  }
+  #pg-post .section-blog h2 {
+    margin-bottom: 20px;
+  }
+}
 #pg-about .intro {
   padding: 150px 0 50px 0;
   background-image: url("./img/sobre-fundo.webp");
