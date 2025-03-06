@@ -73,9 +73,9 @@
         el: '#app',
         data() {
             return {
-                activeMenu: false,
-                activeSubmenus: [],
-                activeTab: 'descricao',
+                activeMenu: false, // Controle do menu
+                activeSubmenus: [], // Submenus ativos
+                activeTab: 'descricao', // Aba ativa
                 tabs: [{
                     id: 'descricao',
                     label: 'Descrição'
@@ -93,9 +93,10 @@
         },
         methods: {
             toggleMenu() {
-                this.activeMenu = !this.activeMenu;
+                this.activeMenu = !this.activeMenu; // Alterna o estado do menu
             },
             toggleSubmenu(itemId) {
+                // Verifica se o submenu já está aberto. Se sim, fecha. Se não, abre.
                 if (this.activeSubmenus.includes(itemId)) {
                     this.activeSubmenus = this.activeSubmenus.filter(id => id !== itemId);
                 } else {
@@ -103,36 +104,61 @@
                 }
             },
             isSubmenuActive(itemId) {
+                // Retorna se o submenu está ativo ou não
                 return this.activeSubmenus.includes(itemId);
             },
             closeSubmenus(event) {
+                // Verifica se o clique foi fora do componente Vue e fecha os submenus
                 if (!this.$el.contains(event.target)) {
-                    this.activeSubmenus = [];
+                    this.activeSubmenus = []; // Fecha todos os submenus
                 }
             }
         },
         mounted() {
+            // Adiciona o ouvinte de evento de clique para fechar os submenus quando clicado fora
             document.addEventListener('click', this.closeSubmenus);
         },
         beforeDestroy() {
+            // Remove o ouvinte de evento quando o componente for destruído
             document.removeEventListener('click', this.closeSubmenus);
         }
     });
 
+    // Lógica de Toggle para as perguntas e respostas do FAQ
     document.addEventListener('DOMContentLoaded', function () {
-        const faqButtons = document.querySelectorAll('.faq-question');
+        const faqButtons = document.querySelectorAll('.faq-question'); // Seleciona os botões de FAQ
 
         faqButtons.forEach((button, index) => {
             button.addEventListener('click', function () {
-                const faqAnswer = this.nextElementSibling;
-                const arrowIcon = this.querySelector('.arrow-icon');
+                const faqAnswer = this.nextElementSibling; // Seleciona a resposta correspondente
+                const arrowIcon = this.querySelector('.arrow-icon'); // Seleciona o ícone da seta
 
-                if (faqAnswer.classList.contains('show')) {
-                    faqAnswer.classList.remove('show');
-                    arrowIcon.style.transform = 'rotate(0deg)';
+                // Alterna a exibição da resposta e a rotação da seta
+                faqAnswer.classList.toggle('show');
+                arrowIcon.style.transform = faqAnswer.classList.contains('show') ?
+                    'rotate(180deg)' : 'rotate(0deg)';
+            });
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const faqButtons = document.querySelectorAll('.faq-question');
+        faqButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const index = this.getAttribute('data-index');
+                const answer = document.querySelectorAll('.faq-answer')[index];
+                const arrow = this.querySelector('.arrow-icon');
+
+                // Alterna a visibilidade da resposta
+                answer.classList.toggle('active');
+
+                // Alterna a direção da seta
+                if (answer.classList.contains('active')) {
+                    arrow.src =
+                        "<?php echo get_stylesheet_directory_uri(); ?>/img/icons/arrow-down.svg";
                 } else {
-                    faqAnswer.classList.add('show');
-                    arrowIcon.style.transform = 'rotate(180deg)';
+                    arrow.src =
+                        "<?php echo get_stylesheet_directory_uri(); ?>/img/icons/arrow-up.svg";
                 }
             });
         });

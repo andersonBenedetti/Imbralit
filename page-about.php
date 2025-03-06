@@ -170,10 +170,10 @@ de 4 mm, que logo foi apelidada de "telhinha" pelo mercado, assim como se adequa
                             'order' => 'DESC',
                             'tax_query' => array(
                                 array(
-                                    'taxonomy' => 'downloads_categoria', // A taxonomia personalizada
-                                    'field' => 'slug', // Ou 'term_id' se você quiser usar o ID da categoria
-                                    'terms' => 'certificado', // O slug da categoria 'Certificado'
-                                    'operator' => 'IN', // Verifica se o post pertence à categoria
+                                    'taxonomy' => 'downloads_categoria',
+                                    'field' => 'slug',
+                                    'terms' => 'certificado',
+                                    'operator' => 'IN',
                                 ),
                             ),
                         );
