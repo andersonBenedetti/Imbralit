@@ -118,6 +118,25 @@
             document.removeEventListener('click', this.closeSubmenus);
         }
     });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const faqButtons = document.querySelectorAll('.faq-question');
+
+        faqButtons.forEach((button, index) => {
+            button.addEventListener('click', function () {
+                const faqAnswer = this.nextElementSibling;
+                const arrowIcon = this.querySelector('.arrow-icon');
+
+                if (faqAnswer.classList.contains('show')) {
+                    faqAnswer.classList.remove('show');
+                    arrowIcon.style.transform = 'rotate(0deg)';
+                } else {
+                    faqAnswer.classList.add('show');
+                    arrowIcon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+    });
 </script>
 
 </div>

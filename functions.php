@@ -56,7 +56,7 @@ function custom_post_type($post_type, $singular_name, $plural_name)
 add_action('init', function () {
 	custom_post_type('carrossel', 'Carrossel', 'Carrossel');
 	custom_post_type('produtos', 'Produtos', 'Produtos');
-	custom_post_type('certificados', 'Certificados', 'Certificados');
+	custom_post_type('downloads', 'Downloads', 'Downloads');
 	custom_post_type('compromisso_social', 'Compromisso Social', 'Compromisso Social');
 	custom_post_type('termos_garantia', 'Termos de garantia', 'Termos de garantia');
 	custom_post_type('guia_instalacao', 'Guia de instalação', 'Guia de instalação');
@@ -94,6 +94,39 @@ function custom_taxonomy_produto()
 }
 
 add_action('init', 'custom_taxonomy_produto');
+
+function custom_taxonomy_downloads()
+{
+	$args = array(
+		'hierarchical' => true,
+		'labels' => array(
+			'name' => 'Categorias de Downloads',
+			'singular_name' => 'Categoria de dowloads',
+			'search_items' => 'Procurar Categorias',
+			'all_items' => 'Todas as Categorias',
+			'parent_item' => 'Categoria Pai',
+			'parent_item_colon' => 'Categoria Pai:',
+			'edit_item' => 'Editar Categoria',
+			'update_item' => 'Atualizar Categoria',
+			'add_new_item' => 'Adicionar Nova Categoria',
+			'new_item_name' => 'Novo Nome de Categoria',
+			'menu_name' => 'Categorias de Downloads',
+		),
+		'rewrite' => array(
+			'slug' => 'downloads',
+			'with_front' => false,
+			'hierarchical' => true,
+		),
+		'show_ui' => true,
+		'show_admin_column' => true,
+		'query_var' => true,
+		'show_in_rest' => true,
+	);
+
+	register_taxonomy('downloads_categoria', 'downloads', $args);
+}
+
+add_action('init', 'custom_taxonomy_downloads');
 
 
 function enqueue_slick_scripts()
