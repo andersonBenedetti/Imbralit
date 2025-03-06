@@ -255,33 +255,33 @@
                 <h3>TERMOS DE GARANTIA</h3>
                 <div class="items">
                     <?php
-          $args = array(
-            'post_type' => 'termos_garantia',
-            'posts_per_page' => -1,
-            'order' => 'DESC',
-          );
-          $the_query = new WP_Query($args);
-          ?>
+                    $args = array(
+                        'post_type' => 'termos_garantia',
+                        'posts_per_page' => -1,
+                        'order' => 'DESC',
+                    );
+                    $the_query = new WP_Query($args);
+                    ?>
 
                     <?php if ($the_query->have_posts()): ?>
-                    <?php while ($the_query->have_posts()):
-              $the_query->the_post();
-              $arquivo_download = get_field('arquivo_para_download');
-              ?>
+                        <?php while ($the_query->have_posts()):
+                            $the_query->the_post();
+                            $arquivo_download = get_field('arquivo_para_download');
+                            ?>
 
-                    <?php if ($arquivo_download): ?>
-                    <a class="item" href="<?php echo esc_url($arquivo_download); ?>" download
-                        aria-label="Baixar <?php the_title_attribute(); ?>">
-                        <img class="icon" src="<?php echo get_stylesheet_directory_uri(); ?>/img/icons/baixar.svg"
-                            alt="Ícone de download">
-                        <p><?php the_title(); ?></p>
-                    </a>
-                    <?php endif; ?>
+                            <?php if ($arquivo_download): ?>
+                                <a class="item" href="<?php echo esc_url($arquivo_download); ?>" download
+                                    aria-label="Baixar <?php the_title_attribute(); ?>">
+                                    <img class="icon" src="<?php echo get_stylesheet_directory_uri(); ?>/img/icons/baixar.svg"
+                                        alt="Ícone de download">
+                                    <p><?php the_title(); ?></p>
+                                </a>
+                            <?php endif; ?>
 
-                    <?php endwhile; ?>
-                    <?php wp_reset_postdata(); ?>
+                        <?php endwhile; ?>
+                        <?php wp_reset_postdata(); ?>
                     <?php else: ?>
-                    <p class="no-items"><?php _e('Desculpe, nenhum certificado encontrado.'); ?></p>
+                        <p class="no-items"><?php _e('Desculpe, nenhum certificado encontrado.'); ?></p>
                     <?php endif; ?>
                 </div>
             </div>
@@ -290,33 +290,33 @@
                 <h3>GUIA DE INSTALAÇÃO</h3>
                 <div class="items">
                     <?php
-          $args = array(
-            'post_type' => 'guia_instalacao',
-            'posts_per_page' => -1,
-            'order' => 'DESC',
-          );
-          $the_query = new WP_Query($args);
-          ?>
+                    $args = array(
+                        'post_type' => 'guia_instalacao',
+                        'posts_per_page' => -1,
+                        'order' => 'DESC',
+                    );
+                    $the_query = new WP_Query($args);
+                    ?>
 
                     <?php if ($the_query->have_posts()): ?>
-                    <?php while ($the_query->have_posts()):
-              $the_query->the_post();
-              $arquivo_download = get_field('arquivo_para_download');
-              ?>
+                        <?php while ($the_query->have_posts()):
+                            $the_query->the_post();
+                            $arquivo_download = get_field('arquivo_para_download');
+                            ?>
 
-                    <?php if ($arquivo_download): ?>
-                    <a class="item" class="item" href="<?php echo esc_url($arquivo_download); ?>" download
-                        aria-label="Baixar <?php the_title_attribute(); ?>">
-                        <img class="icon" src="<?php echo get_stylesheet_directory_uri(); ?>/img/icons/baixar.svg"
-                            alt="Ícone de download">
-                        <p><?php the_title(); ?></p>
-                    </a>
-                    <?php endif; ?>
+                            <?php if ($arquivo_download): ?>
+                                <a class="item" class="item" href="<?php echo esc_url($arquivo_download); ?>" download
+                                    aria-label="Baixar <?php the_title_attribute(); ?>">
+                                    <img class="icon" src="<?php echo get_stylesheet_directory_uri(); ?>/img/icons/baixar.svg"
+                                        alt="Ícone de download">
+                                    <p><?php the_title(); ?></p>
+                                </a>
+                            <?php endif; ?>
 
-                    <?php endwhile; ?>
-                    <?php wp_reset_postdata(); ?>
+                        <?php endwhile; ?>
+                        <?php wp_reset_postdata(); ?>
                     <?php else: ?>
-                    <p class="no-items"><?php _e('Desculpe, nenhum certificado encontrado.'); ?></p>
+                        <p class="no-items"><?php _e('Desculpe, nenhum certificado encontrado.'); ?></p>
                     <?php endif; ?>
                 </div>
             </div>
