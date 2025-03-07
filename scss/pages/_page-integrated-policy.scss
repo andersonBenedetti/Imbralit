@@ -1,0 +1,167 @@
+#pg-integrated {
+  .intro {
+    background-image: url("./img/politica-integrada.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 150px 0 150px 0;
+
+    &::after {
+      background-image: url("./img/section-esquerda.svg");
+      background-position: left top;
+    }
+
+    h1 {
+      @include titleSection;
+      text-transform: uppercase;
+      color: $white;
+      margin-bottom: 20px;
+    }
+  }
+
+  .section-infos {
+    padding: 50px 0 100px 0;
+
+    &::after {
+      background-image: url("./img/section-esquerda-azul.svg");
+      background-position: left top;
+    }
+
+    .content {
+      .top {
+        display: flex;
+        justify-content: space-between;
+        gap: 50px;
+
+        .texts {
+          max-width: 620px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          color: $textPost;
+
+          h2 {
+            @include postH4;
+          }
+        }
+
+        .img {
+          max-width: 540px;
+          width: 100%;
+          object-fit: contain;
+        }
+      }
+
+      .bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 50px;
+        margin-top: 100px;
+
+        .texts {
+          max-width: 620px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          color: $textPost;
+
+          h3 {
+            @include postH4;
+          }
+        }
+
+        .img {
+          margin: 0 auto;
+          max-width: 395px;
+          width: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+
+  .section-content {
+    background-color: $btnColor;
+    padding: 50px 0 150px 0;
+    margin-bottom: -100px;
+
+    .top {
+      color: $white;
+      text-align: center;
+
+      h2 {
+        @include titleSection;
+      }
+
+      h3 {
+        @include subtitle;
+        text-transform: uppercase;
+        margin: 10px auto 20px auto;
+      }
+
+      p {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+    }
+
+    .services-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 50px;
+
+      .service-item {
+        background-color: $white;
+        border-radius: 8px;
+        padding: 30px 20px;
+
+        .service-image {
+          width: 100%;
+          object-fit: contain;
+        }
+
+        .service-title {
+          @include postH5;
+          color: $oceanBlue;
+          text-transform: uppercase;
+          text-align: center;
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  #pg-integrated {
+    .intro {
+      padding: 100px 0;
+    }
+
+    .section-infos {
+      padding: 20px 0 100px 0;
+
+      .content {
+        .top {
+          flex-direction: column;
+        }
+
+        .bottom {
+          flex-direction: column-reverse;
+          margin-top: 50px;
+        }
+      }
+    }
+
+    .section-content {
+      padding: 20px 0 120px 0;
+
+      .services-container {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+      }
+    }
+  }
+}
