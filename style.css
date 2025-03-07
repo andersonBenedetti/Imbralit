@@ -3160,6 +3160,157 @@ ul {
     grid-template-columns: 1fr;
   }
 }
+#pg-integrated .intro {
+  background-image: url("./img/politica-integrada.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0 150px 0;
+}
+#pg-integrated .intro::after {
+  background-image: url("./img/section-esquerda.svg");
+  background-position: left top;
+}
+#pg-integrated .intro h1 {
+  font-weight: 700;
+  font-size: 3em;
+  line-height: 48px;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+#pg-integrated .section-infos {
+  padding: 50px 0 100px 0;
+}
+#pg-integrated .section-infos::after {
+  background-image: url("./img/section-esquerda-azul.svg");
+  background-position: left top;
+}
+#pg-integrated .section-infos .content .top {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+}
+#pg-integrated .section-infos .content .top .texts {
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: #2a4250;
+}
+#pg-integrated .section-infos .content .top .texts h2 {
+  font-weight: 600;
+  font-size: 2.125em;
+  line-height: 48px;
+  letter-spacing: -0.03em;
+}
+#pg-integrated .section-infos .content .top .img {
+  max-width: 540px;
+  width: 100%;
+  object-fit: contain;
+}
+#pg-integrated .section-infos .content .bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  margin-top: 100px;
+}
+#pg-integrated .section-infos .content .bottom .texts {
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: #2a4250;
+}
+#pg-integrated .section-infos .content .bottom .texts h3 {
+  font-weight: 600;
+  font-size: 2.125em;
+  line-height: 48px;
+  letter-spacing: -0.03em;
+}
+#pg-integrated .section-infos .content .bottom .img {
+  margin: 0 auto;
+  max-width: 395px;
+  width: 100%;
+  object-fit: contain;
+}
+#pg-integrated .section-content {
+  background-color: #223a83;
+  padding: 50px 0 150px 0;
+  margin-bottom: -100px;
+}
+#pg-integrated .section-content .top {
+  color: #ffffff;
+  text-align: center;
+}
+#pg-integrated .section-content .top h2 {
+  font-weight: 700;
+  font-size: 3em;
+  line-height: 48px;
+  letter-spacing: -0.03em;
+}
+#pg-integrated .section-content .top h3 {
+  font-weight: 400;
+  font-size: 0.938em;
+  line-height: 17.78px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin: 10px auto 20px auto;
+}
+#pg-integrated .section-content .top p {
+  max-width: 500px;
+  margin: 0 auto;
+}
+#pg-integrated .section-content .services-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 50px;
+}
+#pg-integrated .section-content .services-container .service-item {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 30px 20px;
+}
+#pg-integrated .section-content .services-container .service-item .service-image {
+  width: 100%;
+  object-fit: contain;
+}
+#pg-integrated .section-content .services-container .service-item .service-title {
+  font-weight: 700;
+  font-size: 1.5em;
+  line-height: 27px;
+  letter-spacing: -0.03em;
+  color: #008bd2;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 20px;
+}
+
+@media (max-width: 1024px) {
+  #pg-integrated .intro {
+    padding: 100px 0;
+  }
+  #pg-integrated .section-infos {
+    padding: 20px 0 100px 0;
+  }
+  #pg-integrated .section-infos .content .top {
+    flex-direction: column;
+  }
+  #pg-integrated .section-infos .content .bottom {
+    flex-direction: column-reverse;
+    margin-top: 50px;
+  }
+  #pg-integrated .section-content {
+    padding: 20px 0 120px 0;
+  }
+  #pg-integrated .section-content .services-container {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
+}
 .contact-info {
   display: flex;
   flex-direction: column;
