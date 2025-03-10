@@ -190,3 +190,10 @@ $font-primary: "Rubik", serif;
   line-height: 19px;
   letter-spacing: -0.03em;
 }
+
+@mixin labelConsent {
+  font-weight: 400;
+  font-size: 0.75em;
+  line-height: 100%;
+  letter-spacing: -0.03em;
+}
