@@ -1,0 +1,101 @@
+#pg-privacy {
+  .intro {
+    background-image: url("./img/politica-privacidade.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 150px 0 150px 0;
+
+    &::after {
+      background-image: url("./img/section-esquerda.svg");
+      background-position: left top;
+    }
+
+    h1 {
+      @include titleSection;
+      text-transform: uppercase;
+      color: $white;
+      margin-bottom: 20px;
+    }
+  }
+
+  .section-content {
+    padding: 50px 0 100px 0;
+
+    .container {
+      max-width: 1120px;
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        .group-content {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          color: $textPost;
+
+          h3 {
+            @include postH5;
+          }
+
+          a {
+            color: $textPost;
+            transition: text-decoration 0.3s ease;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+
+          .table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+
+            table {
+              background-color: $white;
+              border-radius: 8px;
+              padding: 0 20px;
+              width: 100%;
+              border-collapse: separate;
+              border-spacing: 20px;
+
+              th,
+              td {
+                text-align: left;
+                padding: 20px 0;
+                border-bottom: 1px solid $lineDate;
+              }
+
+              th {
+                white-space: nowrap;
+                @include btnTabs;
+              }
+
+              tbody {
+                tr {
+                  &:last-child td {
+                    border-bottom: none;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  #pg-privacy {
+    .intro {
+      padding: 100px 0;
+    }
+
+    .section-content {
+      padding: 20px 0 50px 0;
+    }
+  }
+}

@@ -3311,6 +3311,93 @@ ul {
     gap: 20px;
   }
 }
+#pg-privacy .intro {
+  background-image: url("./img/politica-privacidade.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0 150px 0;
+}
+#pg-privacy .intro::after {
+  background-image: url("./img/section-esquerda.svg");
+  background-position: left top;
+}
+#pg-privacy .intro h1 {
+  font-weight: 700;
+  font-size: 3em;
+  line-height: 48px;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+#pg-privacy .section-content {
+  padding: 50px 0 100px 0;
+}
+#pg-privacy .section-content .container {
+  max-width: 1120px;
+}
+#pg-privacy .section-content .container .content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+#pg-privacy .section-content .container .content .group-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: #2a4250;
+}
+#pg-privacy .section-content .container .content .group-content h3 {
+  font-weight: 700;
+  font-size: 1.5em;
+  line-height: 27px;
+  letter-spacing: -0.03em;
+}
+#pg-privacy .section-content .container .content .group-content a {
+  color: #2a4250;
+  transition: text-decoration 0.3s ease;
+}
+#pg-privacy .section-content .container .content .group-content a:hover {
+  text-decoration: underline;
+}
+#pg-privacy .section-content .container .content .group-content .table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+#pg-privacy .section-content .container .content .group-content .table-wrapper table {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 0 20px;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 20px;
+}
+#pg-privacy .section-content .container .content .group-content .table-wrapper table th,
+#pg-privacy .section-content .container .content .group-content .table-wrapper table td {
+  text-align: left;
+  padding: 20px 0;
+  border-bottom: 1px solid #a4c5d5;
+}
+#pg-privacy .section-content .container .content .group-content .table-wrapper table th {
+  white-space: nowrap;
+  font-weight: 600;
+  font-size: 1.313em;
+  line-height: 24.89px;
+  letter-spacing: -0.03em;
+}
+#pg-privacy .section-content .container .content .group-content .table-wrapper table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+@media (max-width: 1024px) {
+  #pg-privacy .intro {
+    padding: 100px 0;
+  }
+  #pg-privacy .section-content {
+    padding: 20px 0 50px 0;
+  }
+}
 .contact-info {
   display: flex;
   flex-direction: column;
