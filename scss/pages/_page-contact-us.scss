@@ -1,0 +1,81 @@
+#pg-contact {
+  .intro {
+    background-image: url("./img/fale-conosco.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 150px 0 150px 0;
+
+    &::after {
+      background-image: url("./img/section-esquerda.svg");
+      background-position: left top;
+    }
+
+    h1 {
+      @include titleSection;
+      text-transform: uppercase;
+      color: $white;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: $white;
+      max-width: 400px;
+    }
+  }
+
+  .section-content {
+    padding: 50px 0 100px 0;
+
+    .content {
+      display: flex;
+      justify-content: space-between;
+      gap: 50px;
+
+      .container-form {
+        #form-contact {
+          .form-actions {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+
+            .btn {
+              width: 185px;
+            }
+          }
+        }
+      }
+
+      .contact-infos {
+        max-width: 550px;
+        width: 100%;
+        background-color: $white;
+        padding: 20px;
+        height: max-content;
+        border-radius: 8px;
+        box-shadow: 0px 14px 44px 0px #2b205b40;
+      }
+    }
+  }
+
+  .section-map {
+    margin-bottom: -150px;
+  }
+}
+
+@media (max-width: 1024px) {
+  #pg-contact {
+    .intro {
+      padding: 100px 0;
+    }
+
+    .section-content {
+      padding: 20px 0 50px 0;
+
+      .content {
+        flex-wrap: wrap;
+      }
+    }
+  }
+}
