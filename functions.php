@@ -60,6 +60,7 @@ add_action('init', function () {
 	custom_post_type('compromisso_social', 'Compromisso Social', 'Compromisso Social');
 	custom_post_type('termos_garantia', 'Termos de garantia', 'Termos de garantia');
 	custom_post_type('guia_instalacao', 'Guia de instalação', 'Guia de instalação');
+	custom_post_type('vagas', 'Vagas', 'Vagas');
 });
 
 function custom_taxonomy_produto()
