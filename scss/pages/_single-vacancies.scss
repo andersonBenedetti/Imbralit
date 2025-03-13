@@ -1,0 +1,104 @@
+#single-vacancies {
+  .intro {
+    padding: 130px 0 50px 0;
+
+    .infos {
+      display: flex;
+      gap: 10px;
+
+      a {
+        width: max-content;
+        color: $btnColor;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 5px 0;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $oceanBlue;
+        }
+      }
+    }
+
+    h1 {
+      @include postH3;
+      text-transform: uppercase;
+      color: $oceanBlue;
+      margin-top: 20px;
+    }
+  }
+
+  .section-content {
+    border-top: 1px solid $lineDate;
+
+    .content {
+      padding: 50px 0 100px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+
+      .entry-content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        color: $textPost;
+        margin-top: 50px;
+
+        a {
+          color: $oceanBlue;
+        }
+
+        h2 {
+          @include titleSection;
+        }
+
+        h3 {
+          @include postH3;
+        }
+
+        h3 {
+          @include postH3;
+        }
+
+        h4 {
+          @include postH4;
+        }
+
+        h5 {
+          @include postH5;
+        }
+
+        img {
+          width: 100%;
+          max-width: 100%;
+          height: auto;
+          border-radius: 8px;
+          margin-bottom: 20px;
+        }
+
+        iframe,
+        video {
+          width: 100%;
+          height: auto;
+          max-width: 100%;
+          border-radius: 8px;
+          margin-bottom: 20px;
+        }
+
+        ul {
+          list-style: disc;
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  #single-vacancies {
+    .intro {
+      padding: 100px 0 20px 0;
+    }
+  }
+}
