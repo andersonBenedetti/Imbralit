@@ -3483,6 +3483,282 @@ ul {
     flex-wrap: wrap;
   }
 }
+#pg-vacancies .intro {
+  background-image: url("./img/bg-trabalhe-conosco.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0 150px 0;
+}
+#pg-vacancies .intro::after {
+  background-image: url("./img/section-esquerda.svg");
+  background-position: left top;
+}
+#pg-vacancies .intro h1 {
+  font-weight: 700;
+  font-size: 3em;
+  line-height: 48px;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+#pg-vacancies .intro p {
+  color: #ffffff;
+  max-width: 400px;
+}
+#pg-vacancies .section-content {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 100px;
+}
+#pg-vacancies .section-content::after {
+  background-image: url("./img/section-direita-branco.svg");
+  background-position: left top;
+}
+#pg-vacancies .section-content .img-content {
+  max-width: 762px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+#pg-vacancies .section-content h2 {
+  font-weight: 700;
+  font-size: 3em;
+  line-height: 48px;
+  letter-spacing: -0.03em;
+  color: #008bd2;
+  text-transform: uppercase;
+  max-width: 300px;
+}
+#pg-vacancies .section-content .text {
+  max-width: 340px;
+  color: #2e4d5e;
+  margin: 20px 0;
+}
+#pg-vacancies .section-content .list-content {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#pg-vacancies .section-content .list-content .item-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#pg-vacancies .section-content .list-content .item-content .icon-content {
+  width: 54px;
+  height: 54px;
+}
+#pg-vacancies .section-content .list-content .item-content p {
+  color: #2e4d5e;
+}
+#pg-vacancies .section-content .arrow-content {
+  position: absolute;
+  bottom: 40px;
+  right: 10%;
+  z-index: 9;
+  width: max-content;
+  height: 70px;
+  transition: transform 0.3s ease-in-out;
+}
+#pg-vacancies .section-content .arrow-content:hover {
+  transform: scale(1.2);
+}
+#pg-vacancies .section-content .arrow-content img {
+  width: 100%;
+  height: auto;
+}
+#pg-vacancies .section-infos {
+  padding: 50px 0 150px 0;
+  background-color: #ffffff;
+}
+#pg-vacancies .section-infos::after {
+  background-image: url("./img/section-esquerda.svg");
+  background-position: left top;
+}
+#pg-vacancies .section-infos .top h3 {
+  font-weight: 600;
+  font-size: 2.125em;
+  line-height: 48px;
+  letter-spacing: -0.03em;
+  color: #008bd2;
+  text-align: center;
+}
+#pg-vacancies .section-infos .top .list-infos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 30px;
+}
+#pg-vacancies .section-infos .top .list-infos .item-infos {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #ecf2f6;
+  padding: 10px;
+  border-radius: 8px;
+  color: #2e4d5e;
+}
+#pg-vacancies .section-infos .bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-top: 50px;
+}
+#pg-vacancies .section-infos .bottom h4 {
+  font-weight: 400;
+  font-size: 0.938em;
+  line-height: 17.78px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  text-align: center;
+}
+#pg-vacancies .section-infos .bottom h2 {
+  font-weight: 600;
+  font-size: 2.125em;
+  line-height: 48px;
+  letter-spacing: -0.03em;
+  color: #008bd2;
+  text-align: center;
+}
+#pg-vacancies .section-infos .bottom .list-vacancies {
+  border: 1px solid #a4c5d5;
+  border-radius: 8px;
+  max-width: 750px;
+  width: 100%;
+}
+#pg-vacancies .section-infos .bottom .list-vacancies .item-vacancies {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  border-bottom: 1px solid #a4c5d5;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+#pg-vacancies .section-infos .bottom .list-vacancies .item-vacancies:last-child {
+  border: 0;
+}
+#pg-vacancies .section-infos .bottom .list-vacancies .item-vacancies p {
+  font-weight: 600;
+  font-size: 1em;
+  line-height: 24px;
+  letter-spacing: -0.03em;
+  color: #2a4250;
+  transition: color 0.3s ease-in-out;
+}
+#pg-vacancies .section-infos .bottom .list-vacancies .item-vacancies a {
+  color: #008bd2;
+  text-decoration: underline;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+#pg-vacancies .section-infos .bottom .list-vacancies .item-vacancies:hover {
+  transform: translateX(5px);
+  transition: transform 0.3s ease-in-out;
+}
+#pg-vacancies .section-infos .bottom .list-vacancies .item-vacancies:hover p {
+  color: #18262f;
+}
+#pg-vacancies .section-infos .bottom .list-vacancies .item-vacancies:hover a {
+  transform: scale(1.1);
+  color: #06abff;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+#pg-vacancies .section-contact {
+  padding: 50px 0 100px 0;
+}
+#pg-vacancies .section-contact .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+#pg-vacancies .section-contact .content .infos {
+  max-width: 600px;
+}
+#pg-vacancies .section-contact .content .infos h2 {
+  font-weight: 700;
+  font-size: 3em;
+  line-height: 48px;
+  letter-spacing: -0.03em;
+  color: #008bd2;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+#pg-vacancies .section-contact .content .infos .contact-infos {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+}
+#pg-vacancies .section-contact .content .img-contact {
+  max-width: 550px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 1024px) {
+  #pg-vacancies .intro {
+    padding: 100px 0;
+  }
+  #pg-vacancies .section-content {
+    padding: 50px 0 100px 20px;
+    gap: 50px;
+  }
+  #pg-vacancies .section-content .arrow-content {
+    display: none;
+  }
+  #pg-vacancies .section-infos .top .list-infos .item-infos {
+    width: 100%;
+  }
+  #pg-vacancies .section-contact .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+  }
+  #pg-vacancies .section-contact .content .infos {
+    max-width: 600px;
+  }
+  #pg-vacancies .section-contact .content .infos h2 {
+    font-weight: 700;
+    font-size: 3em;
+    line-height: 48px;
+    letter-spacing: -0.03em;
+    color: #008bd2;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  #pg-vacancies .section-contact .content .infos .contact-infos {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  #pg-vacancies .section-contact .content .img-contact {
+    max-width: 550px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
 .contact-info {
   display: flex;
   flex-direction: column;
