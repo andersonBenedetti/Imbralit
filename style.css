@@ -1973,14 +1973,13 @@ ul {
   padding: 50px 0 100px 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 50px;
+  gap: 100px;
 }
 #single-vacancies .section-content .content .entry-content {
   display: flex;
   flex-direction: column;
   gap: 20px;
   color: #2a4250;
-  margin-top: 50px;
 }
 #single-vacancies .section-content .content .entry-content a {
   color: #008bd2;
@@ -2034,10 +2033,36 @@ ul {
   list-style: disc;
   margin-left: 20px;
 }
+#single-vacancies .section-content .content #form-contact h3 {
+  font-weight: 600;
+  font-size: 1.313em;
+  line-height: 24.89px;
+  letter-spacing: -0.03em;
+  color: #008bd2;
+  margin-bottom: 10px;
+}
+#single-vacancies .section-content .content #form-contact .consent {
+  margin: 20px 0;
+}
+#single-vacancies .section-content .content #form-contact .form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+#single-vacancies .section-content .content #form-contact .form-actions .btn {
+  width: 185px;
+}
 
 @media (max-width: 1024px) {
   #single-vacancies .intro {
     padding: 100px 0 20px 0;
+  }
+  #single-vacancies .section-content .content {
+    padding: 50px 0 50px 0;
+    grid-template-columns: 1fr;
+    gap: 50px;
   }
 }
 #pg-about .intro {

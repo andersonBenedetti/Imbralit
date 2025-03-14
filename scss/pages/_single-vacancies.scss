@@ -36,14 +36,13 @@
       padding: 50px 0 100px 0;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 50px;
+      gap: 100px;
 
       .entry-content {
         display: flex;
         flex-direction: column;
         gap: 20px;
         color: $textPost;
-        margin-top: 50px;
 
         a {
           color: $oceanBlue;
@@ -91,6 +90,30 @@
           margin-left: 20px;
         }
       }
+
+      #form-contact {
+        h3 {
+          @include btnTabs;
+          color: $oceanBlue;
+          margin-bottom: 10px;
+        }
+
+        .consent {
+          margin: 20px 0;
+        }
+
+        .form-actions {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 20px;
+
+          .btn {
+            width: 185px;
+          }
+        }
+      }
     }
   }
 }
@@ -99,6 +122,14 @@
   #single-vacancies {
     .intro {
       padding: 100px 0 20px 0;
+    }
+
+    .section-content {
+      .content {
+        padding: 50px 0 50px 0;
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
     }
   }
 }
