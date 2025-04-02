@@ -276,4 +276,58 @@
       background-position: left top;
     }
   }
+
+  .section-form {
+    padding: 100px 0 200px 0;
+    background-color: $white;
+    margin-bottom: -50px;
+
+    @media (max-width: 1024px) {
+      padding: 20px 0 100px;
+    }
+
+    .content-form {
+      display: flex;
+      justify-content: space-between;
+      gap: 100px;
+
+      @media (max-width: 1024px) {
+        flex-wrap: wrap;
+        gap: 50px;
+      }
+
+      .infos-form {
+        max-width: 500px;
+
+        .title-form {
+          @include postH3;
+          color: $oceanBlue;
+          text-transform: uppercase;
+          margin-bottom: 20px;
+        }
+      }
+
+      #form-contact {
+        position: relative;
+        z-index: 9;
+
+        &::before {
+          position: absolute;
+          top: -75px;
+          right: -100px;
+          content: "";
+          width: 325px;
+          height: 353px;
+          background-image: url("./img/icons/vector-logo.svg");
+          background-size: cover;
+          background-repeat: no-repeat;
+          z-index: -1;
+
+          @media (max-width: 1024px) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
 }

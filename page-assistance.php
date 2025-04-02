@@ -33,7 +33,7 @@
 
                         <div class="form-group">
                             <label for="cep">CEP*</label>
-                            <input type="text" id="cep" name="cep" placeholder="(00)" required>
+                            <input type="text" id="cep" name="cep" placeholder="" required>
                         </div>
 
                         <div class="column-two">
@@ -108,12 +108,12 @@
 
                         <div class="form-group">
                             <label for="cnpj">CNPJ*</label>
-                            <input type="text" id="cnpj" name="cnpj" placeholder="(00)" required>
+                            <input type="text" id="cnpj" name="cnpj" placeholder="" required>
                         </div>
 
                         <div class="form-group">
                             <label for="revenda_cep">CEP*</label>
-                            <input type="text" id="revenda_cep" name="revenda_cep" placeholder="(00)" required>
+                            <input type="text" id="revenda_cep" name="revenda_cep" placeholder="" required>
                         </div>
 
                         <div class="column-two">
