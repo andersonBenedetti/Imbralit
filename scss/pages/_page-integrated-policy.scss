@@ -89,6 +89,7 @@
     .top {
       color: $white;
       text-align: center;
+      margin-bottom: 50px;
 
       h2 {
         @include titleSection;
@@ -103,32 +104,6 @@
       p {
         max-width: 500px;
         margin: 0 auto;
-      }
-    }
-
-    .services-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-      margin-top: 50px;
-
-      .service-item {
-        background-color: $white;
-        border-radius: 8px;
-        padding: 30px 20px;
-
-        .service-image {
-          width: 100%;
-          object-fit: contain;
-        }
-
-        .service-title {
-          @include postH5;
-          color: $oceanBlue;
-          text-transform: uppercase;
-          text-align: center;
-          margin-top: 20px;
-        }
       }
     }
   }
@@ -157,11 +132,6 @@
 
     .section-content {
       padding: 20px 0 120px 0;
-
-      .services-container {
-        grid-template-columns: repeat(1, 1fr);
-        gap: 20px;
-      }
     }
   }
 }

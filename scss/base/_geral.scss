@@ -57,3 +57,53 @@ ul {
     z-index: 3;
   }
 }
+
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+
+  .service-item {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: $white;
+    border-radius: 8px;
+    padding: 30px 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+    .service-image {
+      width: 100%;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .service-title {
+      @include postH5;
+      color: $oceanBlue;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0, 139, 210, 0.2);
+      background: lighten($oceanBlue, 45%);
+
+      .service-image {
+        transform: scale(1.05);
+      }
+
+      .service-title {
+        color: darken($oceanBlue, 10%);
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
+}

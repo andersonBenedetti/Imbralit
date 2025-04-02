@@ -197,3 +197,10 @@ $font-primary: "Rubik", serif;
   line-height: 100%;
   letter-spacing: -0.03em;
 }
+
+@mixin titleContent {
+  font-weight: 700;
+  font-size: 5em;
+  line-height: 48px;
+  letter-spacing: 0;
+}
