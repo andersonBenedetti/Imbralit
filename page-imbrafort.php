@@ -41,6 +41,57 @@ $cardsAbout = [
             durabilidade, evidenciada na maior garantia do mercado de fibrocimento.'
   ]
 ];
+
+$items = [
+  [
+    'icon' => 'formulacao.svg',
+    'alt' => 'Icone - Formulação diferenciada',
+    'title' => 'Formulação</br> diferenciada'
+  ],
+  [
+    'icon' => 'nanotecnologia.svg',
+    'alt' => 'Icone - Nanotecnologia na composição',
+    'title' => 'Nanotecnologia</br> na composição'
+  ],
+  [
+    'icon' => 'impermeabilidade.svg',
+    'alt' => 'Icone - Impermeabilidade aprimorada intercamadas',
+    'title' => 'Impermeabilidade</br> aprimorada intercamadas'
+  ],
+  [
+    'icon' => 'tempo-cura.svg',
+    'alt' => 'Icone - Maior tempo de cura',
+    'title' => 'Maior tempo</br> de cura'
+  ],
+  [
+    'icon' => 'patente.svg',
+    'alt' => 'Icone - Patente requerida',
+    'title' => 'Patente requerida'
+  ],
+  [
+    'icon' => 'requisitos.svg',
+    'alt' => 'Icone - Requisitos acima dos exigidos pela NBR 15210',
+    'title' => 'Requisitos acima dos</br> exigidos pela NBR 15210'
+  ]
+];
+
+$services = [
+  [
+    'img' => 'canal-exclusivo.webp',
+    'title' => 'CANAL EXCLUSIVO DO SAC',
+    'text' => 'Suporte especializado e dedicado ao revendedor e consumidor final para cálculo de cobertura, treinamento técnico, projeto de execução do telhado e procedimento para instalação das telhas.'
+  ],
+  [
+    'img' => 'controle-rastreio.webp',
+    'title' => 'CONTROLE E RASTREIO',
+    'text' => 'Através de tecnologia <strong>QR Code</strong> o controle de qualidade e rastreio de todos os lotes é eficaz e acessível de qualquer dispositivo móvel.'
+  ],
+  [
+    'img' => 'embalagem.webp',
+    'title' => 'EMBALAGEM ESPECIAL',
+    'text' => 'Para melhor acomodação e maior segurança no transporte, os paletes da linha <strong>Imbrafort</strong> contam com 40 telhas, além de cantoneiras e stretch azul.'
+  ],
+];
 ?>
 
 <main id="pg-imbra">
@@ -77,10 +128,50 @@ $cardsAbout = [
       <div class="cards-about">
         <?php foreach ($cardsAbout as $card): ?>
           <div class="item-about">
-            <img class="img" src="<?= get_stylesheet_directory_uri(); ?>/img/<?= esc_attr($card['img']); ?>"
+            <img class="icon-about" src="<?= get_stylesheet_directory_uri(); ?>/img/<?= esc_attr($card['img']); ?>"
               alt="<?= esc_attr($card['alt']); ?>">
             <h3><?= esc_html($card['title']); ?></h3>
             <p><?= $card['content']; ?></p>
+          </div>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-content section-aba">
+    <div class="container">
+      <div class="infos-top">
+        <h2 class="title-content">
+          COM A IMBRAFORT
+          <p>tem <span>+</span></p>
+        </h2>
+        <img class="img-content" src="<?php echo get_stylesheet_directory_uri(); ?>/img/ond-front.webp"
+          alt="Imagem Telha">
+      </div>
+
+      <div class="items-content">
+        <?php foreach ($items as $item): ?>
+          <div class="item">
+            <img class="img-item"
+              src="<?php echo get_stylesheet_directory_uri(); ?>/img/icons/<?php echo $item['icon']; ?>"
+              alt="<?php echo $item['alt']; ?>">
+            <h3><?php echo $item['title']; ?></h3>
+          </div>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-services section-aba">
+    <div class="container">
+      <div class="services-container">
+        <?php foreach ($services as $service): ?>
+          <div class="service-item">
+            <img class="service-image"
+              src="<?php echo get_stylesheet_directory_uri(); ?>/img/<?php echo $service['img']; ?>"
+              alt="<?php echo $service['title']; ?>">
+            <h3 class="service-title"><?php echo $service['title']; ?></h3>
+            <p class="service-text"><?php echo $service['text']; ?></p>
           </div>
         <?php endforeach; ?>
       </div>

@@ -8,7 +8,6 @@ $catalogCat = [
     ['link' => '#', 'img' => 'pecas-complementares.webp', 'title' => 'Telhas'],
     ['link' => '#', 'img' => 'chapa-cimenticia.webp', 'title' => 'Chapa Cimentícia'],
     ['link' => '#', 'img' => 'acessorios.webp', 'title' => 'Acessórios de fixação e vedação'],
-
 ];
 ?>
 
