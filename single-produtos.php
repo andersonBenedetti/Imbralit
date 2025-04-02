@@ -75,7 +75,7 @@
 
                                         if ($titulo_do_arquivo && $upload_do_arquivo):
                                             ?>
-                                            <a href="<?php echo esc_url($upload_do_arquivo['url']); ?>" download>
+                                            <a class="download-item" href="<?php echo esc_url($upload_do_arquivo['url']); ?>" download>
                                                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/icons/solar_download-outline.svg"
                                                     alt="Download arquivo">
                                                 <p><?php echo esc_html($titulo_do_arquivo); ?></p>

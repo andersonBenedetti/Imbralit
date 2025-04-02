@@ -6,5 +6,84 @@
     background-size: cover;
     width: 100%;
     height: 680px;
+
+    &::after {
+      display: none;
+      background-image: url("./img/section-esquerda.svg");
+      background-position: left top;
+    }
+
+    @media (max-width: 768px) {
+      background-image: url("./img/hero-imbrafort-mobile.webp");
+      height: 600px;
+
+      &::after {
+        display: block;
+      }
+    }
+  }
+
+  .section-video {
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px 150px 20px;
+
+    &::after {
+      background-image: url("./img/section-direita-azul.svg");
+      background-position: right top;
+    }
+
+    &::before {
+      content: "";
+      background-image: url("./img/ond-angulo.webp");
+      background-repeat: no-repeat;
+      width: 927px;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 1;
+    }
+
+    iframe {
+      position: relative;
+      z-index: 9;
+    }
+
+    @media (max-width: 768px) {
+      padding-top: 20px;
+
+      &::before {
+        content: "";
+        background-image: url("./img/ond-angulo-m.webp");
+        width: 375px;
+      }
+
+      iframe {
+        height: 200px;
+      }
+    }
+  }
+
+  .section-about {
+    background-color: $btnColor;
+    padding: 50px 0 100px 0;
+
+    &::after {
+      background-image: url("./img/section-esquerda.svg");
+      background-position: left top;
+    }
+
+    .content-about {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
+      color: $white;
+
+      h2 {
+        @include postH4;
+      }
+    }
   }
 }

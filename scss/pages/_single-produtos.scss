@@ -106,6 +106,106 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
+
+        a {
+          color: $oceanBlue;
+        }
+
+        h2 {
+          @include titleSection;
+        }
+
+        h3 {
+          @include postH3;
+        }
+
+        h3 {
+          @include postH3;
+        }
+
+        h4 {
+          @include postH4;
+        }
+
+        h5 {
+          @include postH5;
+        }
+
+        img {
+          width: 100%;
+          max-width: 100%;
+          height: auto;
+          border-radius: 8px;
+          margin-bottom: 20px;
+        }
+
+        iframe,
+        video {
+          width: 100%;
+          height: auto;
+          max-width: 100%;
+          border-radius: 8px;
+          margin-bottom: 20px;
+        }
+
+        ul {
+          list-style: disc;
+          margin-left: 20px;
+        }
+      }
+
+      table {
+        border: 1px solid $lineDate;
+        border-collapse: collapse;
+
+        th,
+        td {
+          border: 1px solid $lineDate;
+          padding: 20px;
+          @include textInfos;
+          text-align: center;
+        }
+
+        th {
+          border-bottom: 1px solid $lineDate;
+          background-color: $iceBlue;
+        }
+
+        tr:nth-child(odd) {
+          background-color: $iceBlue;
+        }
+
+        tr:nth-child(even) {
+          background-color: $white;
+        }
+      }
+
+      .downloads-list {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        .download-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          background-color: $iceBlue;
+          padding: 20px 10px;
+          border-radius: 8px;
+          width: 240px;
+
+          img {
+            width: 24px;
+            height: 24px;
+          }
+
+          p {
+            @include textBtn;
+            color: $btnColor;
+            text-align: center;
+          }
+        }
       }
     }
   }
