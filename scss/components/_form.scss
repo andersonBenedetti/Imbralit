@@ -12,6 +12,10 @@
       display: grid;
       grid-template-columns: 3fr 1fr;
       gap: 20px;
+
+      &.divided {
+        grid-template-columns: 1fr 1fr;
+      }
     }
   }
 
@@ -118,6 +122,11 @@
 
     label {
       @include labelConsent;
+
+      a {
+        color: $textColor;
+        text-decoration: underline;
+      }
     }
   }
 }

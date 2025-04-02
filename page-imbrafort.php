@@ -2,43 +2,42 @@
 
 <?php get_header(); ?>
 
-<?php
-$cardsAbout = [
+<?php $cardsAbout = [
   [
     'img' => 'garantia.webp',
     'alt' => 'Ícone - 12 anos de garantia',
     'title' => '12 anos de garantia',
     'content' => 'Através de seus <strong>diferenciais técnicos</strong> e baseado no histórico da Assistência
-            Técnica, a linha <strong>Imbrafort</strong> oferece ao mercado a <strong>maior garantia</strong> da categoria de
-            fibrocimento.'
+    Técnica, a linha <strong>Imbrafort</strong> oferece ao mercado a <strong>maior garantia</strong> da categoria de
+    fibrocimento.'
   ],
   [
     'img' => 'hidrorrepelencia.webp',
     'alt' => 'Ícone - Hidrorrepelência',
     'title' => 'Hidrorrepelência',
     'content' => 'Inovador processo produtivo que concede as telhas o efeito de hidrorrepelência não somente em sua
-            superfície como, também, impermeabilização intercamadas.'
+    superfície como, também, impermeabilização intercamadas.'
   ],
   [
     'img' => 'resistencia.webp',
     'alt' => 'Ícone - Resistência Superior',
     'title' => 'Resistência Superior',
     'content' => 'Através de suas características técnicas elevadas, a <strong>Imbrafort</strong> oferece um ganho
-            de resistência de 20%, comparada a linha tradicional.'
+    de resistência de 20%, comparada a linha tradicional.'
   ],
   [
     'img' => 'espessura.webp',
     'alt' => 'Ícone - Maior Espessura',
     'title' => 'Maior Espessura',
     'content' => 'Produtos com o <strong>Selo Imbrafort</strong> contam com espessuras de 6,5 mm, fator que eleva
-            os atributos técnicos de toda a linha.'
+    os atributos técnicos de toda a linha.'
   ],
   [
     'img' => 'durabilidade.webp',
     'alt' => 'Ícone - Maior Durabilidade',
     'title' => 'Maior Durabilidade',
     'content' => 'A utilização de <strong>nanopartículas pozolânicas</strong> conferem a linha Imbrafort maior
-            durabilidade, evidenciada na maior garantia do mercado de fibrocimento.'
+    durabilidade, evidenciada na maior garantia do mercado de fibrocimento.'
   ]
 ];
 
@@ -79,17 +78,20 @@ $services = [
   [
     'img' => 'canal-exclusivo.webp',
     'title' => 'CANAL EXCLUSIVO DO SAC',
-    'text' => 'Suporte especializado e dedicado ao revendedor e consumidor final para cálculo de cobertura, treinamento técnico, projeto de execução do telhado e procedimento para instalação das telhas.'
+    'text' => 'Suporte especializado e dedicado ao revendedor e consumidor final para cálculo de cobertura, treinamento
+    técnico, projeto de execução do telhado e procedimento para instalação das telhas.'
   ],
   [
     'img' => 'controle-rastreio.webp',
     'title' => 'CONTROLE E RASTREIO',
-    'text' => 'Através de tecnologia <strong>QR Code</strong> o controle de qualidade e rastreio de todos os lotes é eficaz e acessível de qualquer dispositivo móvel.'
+    'text' => 'Através de tecnologia <strong>QR Code</strong> o controle de qualidade e rastreio de todos os lotes é
+    eficaz e acessível de qualquer dispositivo móvel.'
   ],
   [
     'img' => 'embalagem.webp',
     'title' => 'EMBALAGEM ESPECIAL',
-    'text' => 'Para melhor acomodação e maior segurança no transporte, os paletes da linha <strong>Imbrafort</strong> contam com 40 telhas, além de cantoneiras e stretch azul.'
+    'text' => 'Para melhor acomodação e maior segurança no transporte, os paletes da linha <strong>Imbrafort</strong>
+    contam com 40 telhas, além de cantoneiras e stretch azul.'
   ],
 ];
 ?>
@@ -109,11 +111,14 @@ $services = [
     <div class="container">
       <div class="content-about">
         <h2>SOBRE A IMBRAFORT</h2>
-        <p>A <strong>Imbrafort</strong> nasceu da necessidade de diferenciação dos nossos produtos, criando uma
+        <p>A <strong>Imbrafort</strong> nasceu da necessidade de diferenciação dos nossos produtos, criando
+          uma
           nova demanda,
-          atendendo o público que necessita de maior qualidade em projetos diferenciados e trazendo uma nova
+          atendendo o público que necessita de maior qualidade em projetos diferenciados e trazendo uma
+          nova
           modalidade de telhas de fibrocimento de alta qualidade.</p>
-        <p>A <strong>super telha da Imbralit</strong> se destaca por suas características técnicas diferenciadas
+        <p>A <strong>super telha da Imbralit</strong> se destaca por suas características técnicas
+          diferenciadas
           que a tornam
           mais
           resistente, tornando-a assim uma telha com maior durabilidade.</p>
@@ -121,7 +126,8 @@ $services = [
           hidrorrepelência que garante total proteção do seu telhado.
           Além disso, a <strong>Imbrafort</strong> conta com um canal exclusivo de atendimento que busca
           oferecer suporte
-          diferenciado, desde a concepção do sistema de coberturas, até sua efetiva instalação e é a única do
+          diferenciado, desde a concepção do sistema de coberturas, até sua efetiva instalação e é a única
+          do
           mercado com 12 anos de garantia.</p>
       </div>
 
@@ -174,6 +180,83 @@ $services = [
             <p class="service-text"><?php echo $service['text']; ?></p>
           </div>
         <?php endforeach; ?>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-form">
+    <div class="container">
+      <div class="content-form">
+        <div class="infos-form">
+          <h2 class="title-form">Treinamento</br> Imbrafort</h2>
+          <p>O Treinamento Imbrafort capacita profissionais para a instalação da super telha da Imbralit,
+            garantindo eficiência e qualidade. Com foco na tecnologia avançada, resistência e boas
+            práticas,
+            o curso aprimora habilidades e oferece suporte especializado. Invista no seu conhecimento e
+            destaque-se no mercado!</p>
+        </div>
+
+        <form id="form-contact" method="post" action="<?php echo get_template_directory_uri(); ?>/form-handler.php">
+          <?php wp_nonce_field('custom_form_nonce', '_wpnonce'); ?>
+
+          <div class="form-row">
+            <div class="form-column">
+              <h3>Cadastro</h3>
+              <p>Após a compra das telhas Imbrafort, preencha os dados e clique no botão abaixo para
+                cadastre a sua nota fiscal.</p>
+
+              <div class="column-two divided">
+                <div class="form-group">
+                  <label for="name">Nome</label>
+                  <input type="text" id="name" name="name" placeholder="" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="cpf">CPF</label>
+                  <input type="text" id="cpf" name="cpf" placeholder="" required>
+                </div>
+              </div>
+
+
+
+              <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+
+              <div class="column-two">
+                <div class="form-group">
+                  <label for="revenda_city">Cidade*</label>
+                  <input type="text" id="revenda_city" name="revenda_city" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="revenda_state">UF*</label>
+                  <input type="text" id="revenda_state" name="revenda_state" maxlength="2" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Telefone</label>
+                <input type="text" id="phone" name="phone" placeholder="(00)" required>
+              </div>
+
+              <div class="consent">
+                <input type="checkbox" id="consent" name="consent" required>
+                <label for="consent">
+                  Li e concordo com os <a href="/politica-de-privacidade/">Termos de Uso</a>
+                </label>
+              </div>
+
+              <div class="form-actions">
+                <!-- reCAPTCHA -->
+                <div class="g-recaptcha" data-sitekey="SUA_SITE_KEY"></div>
+
+                <button class="btn tertiary" type="submit">Enviar nota</button>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </section>
