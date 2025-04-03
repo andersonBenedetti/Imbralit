@@ -112,7 +112,7 @@
                         <?php if ($related_products->have_posts()): ?>
                             <?php while ($related_products->have_posts()):
                                 $related_products->the_post(); ?>
-                                <a href="<?php the_permalink(); ?>" class="item-product">
+                                <a href="<?php the_permalink(); ?>" class="item-product product-element">
                                     <div class="img">
                                         <?php if (has_post_thumbnail()): ?>
                                             <?php the_post_thumbnail('medium'); ?>

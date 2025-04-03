@@ -112,7 +112,7 @@ $catalogCat = [
                         fibrocimento,
                         peças complementares e placas planas de fibrocimento, atuamos em todo o Brasil.</p>
                     <a href="#" class="btn tertiary">conheça a imbralit</a>
-                    <a href="#" class="video-link">
+                    <a href="https://www.youtube.com/watch?v=aXkfX9Cw1FE" class="video-link" rel="wp-video-lightbox">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/icons/play-video.svg"
                             alt="Play Video">
                         <p>Assista ao nosso vídeo institucional</p>
