@@ -50,3 +50,10 @@
     </section>
 
 </main>
+
+<footer>
+    <a href="https://wa.me/554834619500" class="whats-float" target="_blank" rel="noopener">
+        <img src="<?php echo get_template_directory_uri(); ?>/img/mascote-imbralit.webp" alt="Mascote">
+        <div class="whats-balloon"><strong>Olá,</strong> como posso</br> te ajudar?</div>
+    </a>
+</footer>
