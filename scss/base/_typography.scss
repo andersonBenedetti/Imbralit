@@ -204,3 +204,10 @@ $font-primary: "Rubik", serif;
   line-height: 48px;
   letter-spacing: 0;
 }
+
+@mixin whatsBalloon {
+  font-weight: 600;
+  font-size: 0.813em;
+  line-height: 100%;
+  letter-spacing: -0.05em;
+}
