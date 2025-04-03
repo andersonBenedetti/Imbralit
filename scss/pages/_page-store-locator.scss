@@ -1,0 +1,11 @@
+#pg-locator {
+  padding-top: 100px;
+
+  @media (max-width: 1024px) {
+    padding-top: 70px;
+  }
+
+  iframe {
+    margin-bottom: -100px;
+  }
+}
