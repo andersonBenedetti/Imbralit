@@ -56,6 +56,12 @@
         text-shadow: 0px 0px 8px rgba($btnColor, 0.5);
       }
     }
+
+    &.product-element {
+      h3 {
+        @include text;
+      }
+    }
   }
 }
 

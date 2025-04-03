@@ -79,9 +79,9 @@
         el: '#app',
         data() {
             return {
-                activeMenu: false, // Controle do menu
-                activeSubmenus: [], // Submenus ativos
-                activeTab: 'descricao', // Aba ativa
+                activeMenu: false,
+                activeSubmenus: [],
+                activeTab: 'descricao',
                 tabs: [{
                     id: 'descricao',
                     label: 'Descrição'
