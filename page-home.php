@@ -4,10 +4,10 @@
 
 <?php
 $catalogCat = [
-    ['link' => '#', 'img' => 'telhas.webp', 'title' => 'Telhas'],
-    ['link' => '#', 'img' => 'pecas-complementares.webp', 'title' => 'Telhas'],
-    ['link' => '#', 'img' => 'chapa-cimenticia.webp', 'title' => 'Chapa Cimentícia'],
-    ['link' => '#', 'img' => 'acessorios.webp', 'title' => 'Acessórios de fixação e vedação'],
+    ['link' => '/telhas', 'img' => 'telhas.webp', 'title' => 'Telhas'],
+    ['link' => '/pecas-complementares', 'img' => 'pecas-complementares.webp', 'title' => 'Peças Complementares'],
+    ['link' => '/chapa-cimenticia', 'img' => 'chapa-cimenticia.webp', 'title' => 'Chapa Cimentícia'],
+    ['link' => '/acessorios', 'img' => 'acessorios.webp', 'title' => 'Acessórios de fixação e vedação'],
 ];
 ?>
 
@@ -63,14 +63,14 @@ $catalogCat = [
                     <div>
                         <h3>Linha de </br>produtos</h3>
                         <p>Confira nossa linha completa de produtos em fibrocimento.</p>
-                        <a href="#" class="btn">nossos produtos</a>
+                        <a href="/produtos" class="btn">nossos produtos</a>
                     </div>
                 </div>
                 <div class="column-two">
                     <div>
                         <h3>Calculadora de coberturas</h3>
                         <p>Descubra quantas telhas são necessárias para a sua obra!</p>
-                        <a href="#" class="btn tertiary">Quero calcular</a>
+                        <a href="/calculadora" class="btn tertiary">Quero calcular</a>
                     </div>
                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/calculadora-coberturas.webp"
                         alt="Calculadora de coberturas">
@@ -81,7 +81,7 @@ $catalogCat = [
                     <div>
                         <h3>Onde encontrar</h3>
                         <p>Encontre os fornecedores mais próximos a você </p>
-                        <a href="#" class="btn tertiary">Quero encontrar</a>
+                        <a href="quero-encontrar" class="btn tertiary">Quero encontrar</a>
                     </div>
                 </div>
                 <div class="column-four">
@@ -91,7 +91,8 @@ $catalogCat = [
                     <div>
                         <h3>guia de instalação</h3>
                         <p>Guia rápido de instalação de telhas Imbralit</p>
-                        <a href="#" class="btn">baixar guia</a>
+                        <a href="/wp-content/uploads/2025/04/guia-rapido-de-instalacao-doc-4.pdf" class="btn">baixar
+                            guia</a>
                     </div>
                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/guia.webp" alt="Ferramentas">
                 </div>
@@ -111,7 +112,7 @@ $catalogCat = [
                     <p>A Imbralit faz parte do Grupo Empresarial Jorge Zanatta. Produzindo telhas onduladas de
                         fibrocimento,
                         peças complementares e placas planas de fibrocimento, atuamos em todo o Brasil.</p>
-                    <a href="#" class="btn tertiary">conheça a imbralit</a>
+                    <a href="/sobre-nos" class="btn tertiary">conheça a imbralit</a>
                     <a href="https://www.youtube.com/watch?v=aXkfX9Cw1FE" class="video-link" rel="wp-video-lightbox">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/icons/play-video.svg"
                             alt="Play Video">
@@ -138,7 +139,7 @@ $catalogCat = [
                     </a>
                 <?php endforeach; ?>
             </div>
-            <a href="#" class="btn list-btn">conheça a linha completa</a>
+            <a href="/produtos" class="btn list-btn">conheça a linha completa</a>
         </div>
     </section>
 
@@ -149,7 +150,7 @@ $catalogCat = [
                     <span class="subtitle">Blog Imbralit</span>
                     <h2>Confira as últimas notícias</h2>
                 </div>
-                <a href="#" class="btn">ver todas as notícias</a>
+                <a href="/blog" class="btn">ver todas as notícias</a>
             </div>
             <div class="carousel-blog">
                 <?php
@@ -189,7 +190,7 @@ $catalogCat = [
             <div class="content">
                 <span class="subtitle">@imbralit</span>
                 <h2>Acompanhe no instagram</h2>
-                <a href="#" class="btn">
+                <a href="https://www.instagram.com/imbralit/" target="_blank" class="btn">
                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/icons/instagram-icon.svg"
                         alt="Instagram">
                     Siga-nos
@@ -205,7 +206,7 @@ $catalogCat = [
                     <h2>Compromisso social</h2>
                     <p>Nosso compromisso social transcende a responsabilidade corporativa, materializando-se em ações
                         que geram impactos positivos na comunidade onde atuamos.</p>
-                    <a href="#" class="btn">saiba mais</a>
+                    <a href="/politica-integrada" class="btn">saiba mais</a>
                 </div>
                 <div class="imgs">
                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/comp-social.webp"

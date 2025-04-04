@@ -1,6 +1,12 @@
 <?php get_header(); ?>
 
 <main id="single-products">
+    <div class="card-b2b">
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/icons/solar_user-broken.svg" alt="User">
+        <p>Para ver as informações completas deste produto acesse a área de lojista.</p>
+        <a href="/compre-aqui" class="btn tertiary">Compre agora!</a>
+    </div>
+
     <?php if (have_posts()):
         while (have_posts()):
             the_post(); ?>
@@ -8,7 +14,18 @@
             <section class="intro">
                 <div class="container">
                     <div class="content">
-                        <h3>Página inicial > Produtos > telhas > <span><?php the_title(); ?></span></h3>
+                        <h3 class="breadcrumb">
+                            <a href="<?php echo home_url('/'); ?>">Página inicial</a> >
+                            <a href="<?php echo home_url('/produtos'); ?>">Produtos</a> >
+                            <?php
+                            $categories = get_the_terms(get_the_ID(), 'produto_categoria');
+                            if ($categories && !is_wp_error($categories)) {
+                                $category = reset($categories); // Pega a primeira categoria
+                                echo '<a href="' . esc_url(get_term_link($category)) . '">' . $category->name . '</a>';
+                            }
+                            ?> >
+                            <span><?php the_title(); ?></span>
+                        </h3>
                         <h1><?php the_title(); ?></h1>
                         <h2>Referência: <?php echo get_post_meta(get_the_ID(), 'referencia', true); ?></h2>
                     </div>

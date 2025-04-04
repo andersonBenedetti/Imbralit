@@ -151,6 +151,9 @@ function carregar_formulario($formulario)
 
 function processar_formulario()
 {
+	// Verifica se é uma requisição AJAX
+	$is_ajax = !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
+
 	// Recupere o nome do formulário
 	$formulario = isset($_POST['formulario']) ? sanitize_text_field($_POST['formulario']) : 'Formulário Desconhecido';
 
@@ -162,13 +165,14 @@ function processar_formulario()
 
 	// Processar os dados do formulário
 	foreach ($_POST as $key => $value) {
-		if (!in_array($key, ['formulario', 'action'])) {
+		if (!in_array($key, ['formulario', 'action', '_wpnonce'])) {
 			$key_formatado = ucfirst(str_replace('_', ' ', $key));
 			$corpo_email .= "$key_formatado: " . sanitize_text_field($value) . "\n";
 		}
 	}
 
 	// Processar arquivo anexado
+	$anexo_path = '';
 	if (isset($_FILES['anexo']) && $_FILES['anexo']['error'] === UPLOAD_ERR_OK) {
 		$upload_dir = wp_upload_dir();
 		$uploaded_file = $_FILES['anexo'];
@@ -176,23 +180,59 @@ function processar_formulario()
 		$target_path = $upload_dir['path'] . '/' . basename($uploaded_file['name']);
 		if (move_uploaded_file($uploaded_file['tmp_name'], $target_path)) {
 			$corpo_email .= "Arquivo anexado: " . $upload_dir['url'] . '/' . basename($uploaded_file['name']) . "\n";
+			$anexo_path = $target_path;
 		} else {
-			wp_die('Erro ao salvar o arquivo anexado.');
+			$response = [
+				'success' => false,
+				'message' => 'Erro ao salvar o arquivo anexado.'
+			];
+			wp_send_json($response);
 		}
 	}
 
 	// Enviar o e-mail
 	$email_destino = 'andersonjcbenedetti@gmail.com';
 	if (!is_email($email_destino)) {
-		wp_die('E-mail de destino inválido.');
+		$response = [
+			'success' => false,
+			'message' => 'E-mail de destino inválido.'
+		];
+		wp_send_json($response);
 	}
 
-	wp_mail($email_destino, $titulo_email, $corpo_email);
+	$headers = ['Content-Type: text/plain; charset=UTF-8'];
+	$email_enviado = wp_mail($email_destino, $titulo_email, $corpo_email, $headers);
 
-	// Redirecione após o envio
-	wp_safe_redirect(home_url('/obrigado'));
+	// Limpar arquivo temporário se existir
+	if ($anexo_path && file_exists($anexo_path)) {
+		unlink($anexo_path);
+	}
+
+	if ($is_ajax) {
+		// Resposta para requisição AJAX
+		$response = [
+			'success' => $email_enviado,
+			'message' => $email_enviado
+				? 'Formulário enviado com sucesso!'
+				: 'Erro ao enviar o formulário.'
+		];
+		wp_send_json($response);
+	} else {
+		// Resposta para envio tradicional (sem JavaScript)
+		if ($email_enviado) {
+			echo '<script>alert("Formulário enviado com sucesso!");</script>';
+			// Você pode adicionar um redirecionamento opcional aqui se quiser
+			// echo '<script>window.location.href = "' . home_url() . '";</script>';
+		} else {
+			echo '<script>alert("Erro ao enviar o formulário.");</script>';
+		}
+	}
+
 	exit;
 }
+
+add_action('wp_ajax_processar_formulario', 'processar_formulario');
+add_action('wp_ajax_nopriv_processar_formulario', 'processar_formulario');
 
 add_action('after_setup_theme', 'remove_admin_bar');
 function remove_admin_bar()

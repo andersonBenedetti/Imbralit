@@ -46,68 +46,112 @@
         </div>
     </section>
 
-    <section class="content-blog">
+    <section class="content-blog" id="content-blog">
         <div class="container">
             <div class="top">
                 <h2>
-                    <?php echo isset($_GET['s']) ? 'Resultados da pesquisa para: "' . esc_html($_GET['s']) . '"' : 'Todas as notícias'; ?>
+                    <?php
+                    $search_term = isset($_GET['s']) ? esc_html($_GET['s']) : '';
+                    $category_slug = isset($_GET['category_name']) ? $_GET['category_name'] : '';
+
+                    if ($search_term && $category_slug) {
+                        $category = get_term_by('slug', $category_slug, 'category');
+                        $category_name = $category ? $category->name : '';
+                        echo 'Resultados para "' . $search_term . '" na categoria: ' . esc_html($category_name);
+                    } elseif ($search_term) {
+                        echo 'Resultados da pesquisa para: "' . $search_term . '"';
+                    } elseif ($category_slug) {
+                        $category = get_term_by('slug', $category_slug, 'category');
+                        echo 'Categoria: ' . ($category ? esc_html($category->name) : '');
+                    } else {
+                        echo 'Todas as notícias';
+                    }
+                    ?>
                 </h2>
-                <div class="search-box">
-                    <form method="get" action="<?php echo esc_url(home_url('/')); ?>">
-                        <input type="text" name="s" placeholder="O que você está procurando..."
-                            value="<?php echo get_search_query(); ?>">
-                        <button type="submit">
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/icons/search-icon.svg"
-                                alt="Lupa">
-                        </button>
+                <div class="filters-blog">
+                    <form method="GET" action="<?php echo esc_url(home_url('/#content-blog')); ?>">
+                        <select name="category_name" onchange="this.form.submit()">
+                            <option value="">Todos os artigos</option>
+                            <?php
+                            $args = array(
+                                'taxonomy' => 'category',
+                                'orderby' => 'name',
+                                'order' => 'ASC',
+                                'hide_empty' => true,
+                                'exclude' => array(1),
+                            );
+                            $categories = get_terms($args);
+                            foreach ($categories as $category) {
+                                echo '<option value="' . esc_attr($category->slug) . '" ' . selected(isset($_GET['category_name']) ? $_GET['category_name'] : '', $category->slug, false) . '>' . esc_html($category->name) . '</option>';
+                            }
+                            ?>
+                        </select>
+                        <div class="search-box">
+                            <input type="text" name="s" placeholder="Buscar artigos..."
+                                value="<?php echo get_search_query(); ?>">
+                            <button type="submit">
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/icons/search-icon.svg"
+                                    alt="Lupa">
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
 
-            <div class="list-blog">
-                <?php
-                $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-                $args = array(
-                    'post_type' => 'post',
-                    'status' => 'publish',
-                    'posts_per_page' => 8,
-                    'order' => 'DESC',
-                    'paged' => $paged,
-                    's' => get_search_query(),
+            <?php
+            $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+            $args = array(
+                'post_type' => 'post',
+                'posts_per_page' => -1,
+                'paged' => $paged,
+                's' => isset($_GET['s']) ? sanitize_text_field($_GET['s']) : '',
+            );
+
+            if (isset($_GET['category_name']) && !empty($_GET['category_name'])) {
+                $args['tax_query'] = array(
+                    array(
+                        'taxonomy' => 'category',
+                        'field' => 'slug',
+                        'terms' => $_GET['category_name'],
+                        'operator' => 'IN',
+                    ),
                 );
-                $the_query = new WP_Query($args); ?>
+            }
 
-                <?php if ($the_query->have_posts()): ?>
-                    <?php while ($the_query->have_posts()):
-                        $the_query->the_post(); ?>
+            $query = new WP_Query($args);
 
+            if ($query->have_posts()):
+                ?>
+                <div class="list-blog">
+                    <?php while ($query->have_posts()):
+                        $query->the_post(); ?>
                         <a href="<?php the_permalink(); ?>" class="item-post">
                             <div class="img">
-                                <img class="dkp" src="<?php the_post_thumbnail_url('large'); ?>" alt="<?php the_title(); ?>">
+                                <?php if (has_post_thumbnail()): ?>
+                                    <img src="<?php the_post_thumbnail_url('medium'); ?>"
+                                        alt="<?php echo esc_attr(get_the_title()); ?>">
+                                <?php endif; ?>
                             </div>
                             <h3><?php the_title(); ?></h3>
                             <span class="btn-blog">ler mais</span>
                         </a>
-
                     <?php endwhile; ?>
+                </div>
 
-                    <?php wp_reset_postdata(); ?>
-                <?php else: ?>
-                    <p><?php _e('Desculpe, nenhum resultado encontrado para sua busca.'); ?></p>
-                <?php endif; ?>
-            </div>
-
-            <div class="pagination">
-                <?php
-                echo paginate_links(array(
-                    'total' => $the_query->max_num_pages,
-                    'current' => $paged,
-                    'prev_text' => '<span class="prev-arrow"></span>',
-                    'next_text' => '<span class="next-arrow"></span>',
-                ));
-                ?>
-            </div>
-        </div>
+                <div class="paginacao">
+                    <?php
+                    echo paginate_links(array(
+                        'total' => $query->max_num_pages,
+                        'current' => $paged,
+                        'prev_text' => __('« Anterior'),
+                        'next_text' => __('Próxima »'),
+                    ));
+                    ?>
+                </div>
+            <?php else: ?>
+                <p class="no-results">Nenhum artigo encontrado.</p>
+            <?php endif;
+            wp_reset_postdata(); ?>
     </section>
 
 </main>

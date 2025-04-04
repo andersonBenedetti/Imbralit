@@ -4,6 +4,10 @@
     border-radius: 0 0 20px 20px;
     padding: 150px 0 250px 0;
 
+    @media (max-width: 768px) {
+      padding: 70px 0 250px 0;
+    }
+
     .content {
       display: flex;
       flex-direction: column;
@@ -12,10 +16,18 @@
 
       h3 {
         @include textInfos;
-        text-transform: uppercase;
         text-align: center;
         color: $white;
         opacity: 0.5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 5px;
+
+        a {
+          color: $white;
+        }
 
         span {
           font-weight: 600;
@@ -215,6 +227,10 @@
   .products-catalog {
     margin: 150px 0;
 
+    @media (max-width: 768px) {
+      margin: 100px 0;
+    }
+
     h2 {
       @include titleSection;
       color: $btnColor;
@@ -230,6 +246,51 @@
     .video-link {
       background-image: url("./img/video-fundo.webp");
       margin: 0 auto;
+    }
+  }
+
+  @keyframes floatInCard {
+    0% {
+      opacity: 0;
+      transform: translate(-100%, -50%);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0, -50%);
+    }
+  }
+
+  .card-b2b {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    background-color: $white;
+    border-radius: 0 10px 10px 0;
+    text-align: center;
+    cursor: pointer;
+    animation: floatInCard 0.8s ease-out;
+    z-index: 9999;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+
+    img {
+      width: 26;
+      height: 26;
+    }
+
+    p {
+      @include textB2B;
+      color: $btnColor;
+      max-width: 235px;
     }
   }
 }

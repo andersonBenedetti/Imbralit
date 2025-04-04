@@ -1,6 +1,6 @@
 #pg-blog {
   .intro {
-    padding: 130px 0 100px 0;
+    padding-top: 130px;
 
     .top {
       a {
@@ -49,7 +49,7 @@
   }
 
   .content-blog {
-    padding-bottom: 100px;
+    padding: 100px 0 100px 0;
 
     .top {
       display: flex;
@@ -66,37 +66,66 @@
         text-transform: uppercase;
       }
 
-      .search-box form {
+      .filters-blog form {
         display: flex;
-        padding: 0;
-        width: 250px;
-        height: 45px;
-        border-radius: 5px;
-        background-color: $searchColor;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
 
-        input {
-          flex: 1;
-          border: none;
-          background: transparent;
-          padding: 10px;
-          outline: none;
-          color: inherit;
-          @include textInfos;
-          color: $btnColor;
-
-          &::placeholder {
-            color: $btnColor;
+        @media (max-width: 768px) {
+          select,
+          .search-box {
+            width: 100% !important;
           }
         }
 
-        button {
-          border: none;
-          background: none;
-          cursor: pointer;
-          padding: 10px 20px 10px 10px;
+        select {
+          width: 320px;
+          height: 45px;
+          border: 0;
+          border-radius: 5px;
+          padding: 0 10px;
+          background-color: $searchColor;
+          @include textInfos;
+          color: $btnColor;
+
+          &:focus {
+            outline: none;
+          }
+        }
+
+        .search-box {
           display: flex;
-          align-items: center;
-          justify-content: center;
+          padding: 0;
+          width: 250px;
+          height: 45px;
+          border-radius: 5px;
+          background-color: $searchColor;
+
+          input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            padding: 10px;
+            outline: none;
+            color: inherit;
+            @include textInfos;
+            color: $btnColor;
+
+            &::placeholder {
+              color: $btnColor;
+            }
+          }
+
+          button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            padding: 10px 20px 10px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
         }
       }
     }
@@ -218,7 +247,7 @@
 @media (max-width: 1024px) {
   #pg-blog {
     .intro {
-      padding: 100px 0 50px 0;
+      padding-top: 100px;
 
       .top {
         h1 {
@@ -238,7 +267,7 @@
     }
 
     .content-blog {
-      padding-bottom: 50px;
+      padding: 70px 0;
 
       .top {
         margin-bottom: 20px;
