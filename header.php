@@ -28,20 +28,21 @@
 
         <?php
         $menu_items = [
-            ['label' => 'Sobre nós', 'url' => '#'],
+            ['label' => 'Sobre nós', 'url' => '/sobre-nos'],
             [
                 'label' => 'Produtos',
                 'url' => '#',
                 'submenu' => [
-                    ['label' => 'Produto 1', 'url' => '#'],
-                    ['label' => 'Produto 2', 'url' => '#'],
-                    ['label' => 'Produto 3', 'url' => '#'],
+                    ['label' => 'Telhas', 'url' => '/telhas'],
+                    ['label' => 'Peças Complementares', 'url' => '/pecas-complementares'],
+                    ['label' => 'Chapa Cimentícia', 'url' => '/chapa-cimenticia'],
+                    ['label' => 'cessórios de fixação e vedação', 'url' => '/acessorios'],
                 ]
             ],
-            ['label' => 'Imbrafort', 'url' => '#'],
-            ['label' => 'Calculadora', 'url' => '#'],
-            ['label' => 'Onde encontrar', 'url' => '#'],
-            ['label' => 'Blog', 'url' => '#'],
+            ['label' => 'Imbrafort', 'url' => '/imbrafort'],
+            ['label' => 'Calculadora', 'url' => '/calculadora'],
+            ['label' => 'Onde encontrar', 'url' => '/onde-encontrar'],
+            ['label' => 'Blog', 'url' => '/blog'],
         ];
         ?>
 

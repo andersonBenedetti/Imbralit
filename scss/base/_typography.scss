@@ -211,3 +211,10 @@ $font-primary: "Rubik", serif;
   line-height: 100%;
   letter-spacing: -0.05em;
 }
+
+@mixin textB2B {
+  font-weight: 500;
+  font-size: 0.813em;
+  line-height: 100%;
+  letter-spacing: -0.035em;
+}

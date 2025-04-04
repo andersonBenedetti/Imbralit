@@ -60,9 +60,22 @@ foreach ($data as $key => $value) {
 $headers = ["From: Site <no-reply@seudominio.com>", "Reply-To: " . ($data['email'] ?? '')];
 
 // Envia o e-mail
-wp_mail($to, $subject, $message, $headers);
+$email_sent = wp_mail($to, $subject, $message, $headers);
 
-// Redirecionamento pós-envio
-wp_redirect(home_url("/obrigado"));
+// Retorna uma resposta JSON para ser tratada pelo JavaScript
+header('Content-Type: application/json');
+
+if ($email_sent) {
+  echo json_encode([
+    'success' => true,
+    'message' => 'Formulário enviado com sucesso!'
+  ]);
+} else {
+  echo json_encode([
+    'success' => false,
+    'message' => 'Ocorreu um erro ao enviar o formulário.'
+  ]);
+}
+
 exit();
 ?>

@@ -53,6 +53,10 @@
           select {
             @include textInfos;
             color: $btnColor;
+
+            &:focus {
+              outline: none;
+            }
           }
 
           .search-box {
