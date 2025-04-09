@@ -44,7 +44,7 @@ function custom_post_type($post_type, $singular_name, $plural_name)
 		'capability_type' => 'post',
 		'map_meta_cap' => true,
 		'hierarchical' => false,
-		'rewrite' => array('slug' => $post_type, 'with_front' => true),
+		'rewrite' => array('slug' => '', 'with_front' => false),
 		'query_var' => true,
 		'supports' => array('title', 'editor', 'thumbnail'),
 		'labels' => $labels,
@@ -240,4 +240,38 @@ function remove_admin_bar()
 	if (!current_user_can('administrator') && !is_admin()) {
 		show_admin_bar(false);
 	}
+}
+
+add_action('init', 'custom_rewrite_for_produtos');
+function custom_rewrite_for_produtos()
+{
+	// Regra para single posts sem slug
+	add_rewrite_rule(
+		'^([^/]+)/?$',                          // Padrão: qualquer slug na raiz (ex: "nome-do-produto")
+		'index.php?post_type=produtos&name=$matches[1]',
+		'top'                                   // Prioridade máxima
+	);
+}
+
+add_filter('request', 'prioritize_produtos_in_query');
+function prioritize_produtos_in_query($query_vars)
+{
+	if (isset($query_vars['name']) && !isset($query_vars['post_type'])) {
+		// Verifica se o slug corresponde a um produto
+		$produto = get_page_by_path($query_vars['name'], OBJECT, 'produtos');
+		if ($produto) {
+			$query_vars['post_type'] = 'produtos';
+			$query_vars['name'] = $produto->post_name;
+		}
+	}
+	return $query_vars;
+}
+
+add_filter('post_type_link', 'custom_produtos_permalink', 10, 2);
+function custom_produtos_permalink($permalink, $post)
+{
+	if ($post->post_type === 'produtos') {
+		return home_url('/' . $post->post_name . '/');
+	}
+	return $permalink;
 }
