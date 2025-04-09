@@ -78,11 +78,20 @@ $post_data = [
         <div class="container">
             <div class="infos">
                 <?php foreach ($post_data['breadcrumb'] as $item): ?>
-                    <a href="<?php echo esc_url(home_url($item['url'])); ?>">
-                        <?php echo esc_html($item['label']); ?>
-                        <span>></span>
-                    </a>
+                <a href="<?php echo esc_url(home_url($item['url'])); ?>">
+                    <?php echo esc_html($item['label']); ?>
+                    <span>></span>
+                </a>
                 <?php endforeach; ?>
+                <?php
+                $categories = get_the_category();
+                if (!empty($categories)) {
+                    $first_category = $categories[0];
+                    echo '<a href="' . esc_url(get_category_link($first_category->term_id)) . '">';
+                    echo esc_html($first_category->name);
+                    echo '</a>';
+                }
+                ?>
             </div>
         </div>
     </section>
@@ -94,18 +103,8 @@ $post_data = [
                     <h1><?php the_title(); ?></h1>
                     <h2 class="date">
                         <?php
-                        $data_do_post = get_post_meta(get_the_ID(), 'data_do_post', true);
-                        if ($data_do_post) {
-                            $data_formatada = DateTime::createFromFormat('Ymd', $data_do_post);
-                            if ($data_formatada) {
-                                setlocale(LC_TIME, 'pt_BR.utf8', 'pt_BR', 'portuguese');
-                                echo strftime('%d %b %Y', $data_formatada->getTimestamp());
-                            } else {
-                                echo "Data inválida";
-                            }
-                        } else {
-                            echo "Data não definida";
-                        }
+                        $post_date = get_the_date('d M Y');
+                        echo esc_html($post_date);
                         ?>
                     </h2>
                     <div class="img-post">
@@ -119,11 +118,11 @@ $post_data = [
                             <p>Compartilhe:</p>
                             <div class="share-buttons">
                                 <?php foreach ($post_data['share_buttons'] as $button): ?>
-                                    <a href="<?php echo esc_url($button['url']); ?>" target="_blank"
-                                        aria-label="<?php echo esc_attr($button['label']); ?>">
-                                        <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/img/icons/' . $button['icon']); ?>"
-                                            alt="<?php echo esc_attr(str_replace('Compartilhar no ', '', $button['label'])); ?>">
-                                    </a>
+                                <a href="<?php echo esc_url($button['url']); ?>" target="_blank"
+                                    aria-label="<?php echo esc_attr($button['label']); ?>">
+                                    <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/img/icons/' . $button['icon']); ?>"
+                                        alt="<?php echo esc_attr(str_replace('Compartilhar no ', '', $button['label'])); ?>">
+                                </a>
                                 <?php endforeach; ?>
                             </div>
                         </div>
@@ -150,25 +149,25 @@ $post_data = [
                         <div>
                             <?php $the_query = new WP_Query($post_data['query_args']['main']); ?>
                             <?php if ($the_query->have_posts()): ?>
-                                <?php while ($the_query->have_posts()):
+                            <?php while ($the_query->have_posts()):
                                     $the_query->the_post(); ?>
-                                    <a href="<?php the_permalink(); ?>" class="item">
-                                        <div class="img">
-                                            <img class="dkp" src="<?php the_post_thumbnail_url('large'); ?>"
-                                                alt="<?php the_title(); ?>">
-                                        </div>
-                                        <div class="infos">
-                                            <h3><?php the_title(); ?></h3>
-                                            <p class="btn-item">
-                                                Ler
-                                                <span>></span>
-                                            </p>
-                                        </div>
-                                    </a>
-                                <?php endwhile; ?>
-                                <?php wp_reset_postdata(); ?>
+                            <a href="<?php the_permalink(); ?>" class="item">
+                                <div class="img">
+                                    <img class="dkp" src="<?php the_post_thumbnail_url('large'); ?>"
+                                        alt="<?php the_title(); ?>">
+                                </div>
+                                <div class="infos">
+                                    <h3><?php the_title(); ?></h3>
+                                    <p class="btn-item">
+                                        Ler
+                                        <span>></span>
+                                    </p>
+                                </div>
+                            </a>
+                            <?php endwhile; ?>
+                            <?php wp_reset_postdata(); ?>
                             <?php else: ?>
-                                <p><?php _e('Desculpe, nenhum post encontrado.'); ?></p>
+                            <p><?php _e('Desculpe, nenhum post encontrado.'); ?></p>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -176,11 +175,11 @@ $post_data = [
                         <p class="title">Siga-nos nas redes sociais:</p>
                         <div>
                             <?php foreach ($post_data['social_media'] as $social): ?>
-                                <a href="<?php echo esc_url($social['url']); ?>" target="_blank"
-                                    aria-label="<?php echo esc_attr($social['label']); ?>">
-                                    <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/img/icons/' . $social['icon']); ?>"
-                                        alt="<?php echo esc_attr(str_replace('Acessar ', '', $social['label'])); ?>">
-                                </a>
+                            <a href="<?php echo esc_url($social['url']); ?>" target="_blank"
+                                aria-label="<?php echo esc_attr($social['label']); ?>">
+                                <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/img/icons/' . $social['icon']); ?>"
+                                    alt="<?php echo esc_attr(str_replace('Acessar ', '', $social['label'])); ?>">
+                            </a>
                             <?php endforeach; ?>
                         </div>
                     </div>
@@ -195,21 +194,21 @@ $post_data = [
             <div class="carousel-blog">
                 <?php $the_query = new WP_Query($post_data['query_args']['carousel']); ?>
                 <?php if ($the_query->have_posts()): ?>
-                    <?php while ($the_query->have_posts()):
+                <?php while ($the_query->have_posts()):
                         $the_query->the_post(); ?>
-                        <a href="<?php the_permalink(); ?>" class="item-blog">
-                            <div class="img">
-                                <img class="dkp" src="<?php the_post_thumbnail_url('large'); ?>" alt="<?php the_title(); ?>">
-                            </div>
-                            <div class="bottom">
-                                <h3><?php the_title(); ?></h3>
-                                <span class="btn-blog">+</span>
-                            </div>
-                        </a>
-                    <?php endwhile; ?>
-                    <?php wp_reset_postdata(); ?>
+                <a href="<?php the_permalink(); ?>" class="item-blog">
+                    <div class="img">
+                        <img class="dkp" src="<?php the_post_thumbnail_url('large'); ?>" alt="<?php the_title(); ?>">
+                    </div>
+                    <div class="bottom">
+                        <h3><?php the_title(); ?></h3>
+                        <span class="btn-blog">+</span>
+                    </div>
+                </a>
+                <?php endwhile; ?>
+                <?php wp_reset_postdata(); ?>
                 <?php else: ?>
-                    <p><?php _e('Desculpe, nenhum post encontrado.'); ?></p>
+                <p><?php _e('Desculpe, nenhum post encontrado.'); ?></p>
                 <?php endif; ?>
             </div>
         </div>

@@ -80,32 +80,30 @@
                             ?>
                         </div>
                         <div v-if="activeTab === 'downloads'">
+                            <h3>Downloads</h3>
                             <?php
-                            // Verifica se o repeater 'downloads' possui valores
                             if (have_rows('downloads')): ?>
                                 <div class="downloads-list">
                                     <?php
-                                    // Loop através dos itens do repeater
                                     while (have_rows('downloads')):
                                         the_row();
                                         $titulo_do_arquivo = get_sub_field('titulo_do_arquivo');
                                         $upload_do_arquivo = get_sub_field('upload_do_arquivo');
 
-                                        if ($titulo_do_arquivo && $upload_do_arquivo): ?>
-                                            <a class="download-item" href="<?php echo esc_url($upload_do_arquivo); ?>" download>
+                                        if ($titulo_do_arquivo && $upload_do_arquivo):
+                                            ?>
+                                            <a class="download-item" href="<?php echo esc_url($upload_do_arquivo['url']); ?>" download>
                                                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/icons/solar_download-outline.svg"
                                                     alt="Download arquivo">
                                                 <p><?php echo esc_html($titulo_do_arquivo); ?></p>
                                             </a>
                                             <br>
-                                        <?php endif;
-                                    endwhile;
-                                    ?>
+                                        <?php endif; ?>
+                                    <?php endwhile; ?>
                                 </div>
                             <?php else: ?>
                                 <p>Não há arquivos para download.</p>
                             <?php endif; ?>
-
                         </div>
 
                     </div>
@@ -131,7 +129,7 @@
                         <?php if ($related_products->have_posts()): ?>
                             <?php while ($related_products->have_posts()):
                                 $related_products->the_post(); ?>
-                                <a href="<?php the_permalink(); ?>" class="item-product">
+                                <a href="<?php the_permalink(); ?>" class="item-product product-element">
                                     <div class="img">
                                         <?php if (has_post_thumbnail()): ?>
                                             <?php the_post_thumbnail('medium'); ?>

@@ -23,7 +23,7 @@
           </h1>
         </div>
 
-        <form method="GET" action="<?php echo esc_url(home_url('/produtos/')); ?>">
+        <form method="GET" action="<?php echo esc_url(home_url('/')); ?>">
           <p class="title-filter">Filtre por categoria</p>
           <div class="filters">
             <select name="produto_categoria" onchange="this.form.submit()">

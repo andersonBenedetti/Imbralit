@@ -4,10 +4,10 @@
 
 <?php
 $catalogCat = [
-    ['link' => '/telhas', 'img' => 'telhas.webp', 'title' => 'Telhas'],
-    ['link' => '/pecas-complementares', 'img' => 'pecas-complementares.webp', 'title' => 'Peças Complementares'],
-    ['link' => '/chapa-cimenticia', 'img' => 'chapa-cimenticia.webp', 'title' => 'Chapa Cimentícia'],
-    ['link' => '/acessorios', 'img' => 'acessorios.webp', 'title' => 'Acessórios de fixação e vedação'],
+    ['link' => '/produtos/?produto_categoria=telhas&s=', 'img' => 'telhas.webp', 'title' => 'Telhas'],
+    ['link' => '/produtos/?produto_categoria=pecas-complementares&s=', 'img' => 'pecas-complementares.webp', 'title' => 'Peças Complementares'],
+    ['link' => '/produtos/?produto_categoria=chapa-cimenticia&s=', 'img' => 'chapa-cimenticia.webp', 'title' => 'Chapa Cimentícia'],
+    ['link' => '/produtos/?produto_categoria=acessorios-de-fixacao-e-vedacao&s=', 'img' => 'acessorios.webp', 'title' => 'Acessórios de fixação e vedação'],
 ];
 ?>
 
@@ -26,7 +26,9 @@ $catalogCat = [
         ?>
 
         <?php if ($the_query->have_posts()): ?>
-            <div class="slick-counter">1/<?= $total_slides; ?></div>
+            <div class="slick-counter">1/
+                <?= $total_slides; ?>
+            </div>
 
             <section class="carousel-banner">
                 <?php while ($the_query->have_posts()):
@@ -91,8 +93,14 @@ $catalogCat = [
                     <div>
                         <h3>guia de instalação</h3>
                         <p>Guia rápido de instalação de telhas Imbralit</p>
-                        <a href="/wp-content/uploads/2025/04/guia-rapido-de-instalacao-doc-4.pdf" class="btn">baixar
-                            guia</a>
+                        <?php
+                        $guide_file = '/wp-content/uploads/2025/04/guia-rapido-de-instalacao-doc-4.pdf';
+                        $guide_url = esc_url(home_url($guide_file));
+                        ?>
+
+                        <a href="<?php echo $guide_url; ?>" class="btn" download type="application/pdf">
+                            Baixar guia
+                        </a>
                     </div>
                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/guia.webp" alt="Ferramentas">
                 </div>
@@ -112,7 +120,7 @@ $catalogCat = [
                     <p>A Imbralit faz parte do Grupo Empresarial Jorge Zanatta. Produzindo telhas onduladas de
                         fibrocimento,
                         peças complementares e placas planas de fibrocimento, atuamos em todo o Brasil.</p>
-                    <a href="/sobre-nos" class="btn tertiary">conheça a imbralit</a>
+                    <a href="/nossa-historia" class="btn tertiary">conheça a imbralit</a>
                     <a href="https://www.youtube.com/watch?v=aXkfX9Cw1FE" class="video-link" rel="wp-video-lightbox">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/icons/play-video.svg"
                             alt="Play Video">
@@ -135,7 +143,7 @@ $catalogCat = [
                                 alt="<?= esc_attr($cat['title']); ?>">
                         </div>
                         <h3><?= esc_html($cat['title']); ?></h3>
-                        <span class="btn tertiary">ver mais</span>
+                        <span class="btn tertiary">ver todas</span>
                     </a>
                 <?php endforeach; ?>
             </div>
@@ -208,9 +216,32 @@ $catalogCat = [
                         que geram impactos positivos na comunidade onde atuamos.</p>
                     <a href="/politica-integrada" class="btn">saiba mais</a>
                 </div>
-                <div class="imgs">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/comp-social.webp"
-                        alt="Compromisso social">
+                <div class="carousel-social">
+                    <?php
+                    $args = array(
+                        'post_type' => 'compromisso_social',
+                        'status' => 'publish',
+                        'posts_per_page' => -1,
+                        'order' => 'DESC',
+                    );
+                    $the_query = new WP_Query($args); ?>
+
+                    <?php if ($the_query->have_posts()): ?>
+                        <?php while ($the_query->have_posts()):
+                            $the_query->the_post(); ?>
+
+                            <div class="item">
+                                <div class="img">
+                                    <img class="dkp" src="<?php the_post_thumbnail_url('large'); ?>"
+                                        alt="<?php the_title(); ?>">
+                                </div>
+                            </div>
+
+                        <?php endwhile; ?>
+                        <?php wp_reset_postdata(); ?>
+                    <?php else: ?>
+                        <p><?php _e('Desculpe, nenhum slide encontrado.'); ?></p>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

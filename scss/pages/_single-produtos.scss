@@ -169,6 +169,8 @@
       }
 
       table {
+        max-width: 375px;
+        margin: 0;
         border: 1px solid $lineDate;
         border-collapse: collapse;
 
@@ -177,6 +179,7 @@
           border: 1px solid $lineDate;
           padding: 20px;
           @include textInfos;
+          color: $btnColor;
           text-align: center;
         }
 
